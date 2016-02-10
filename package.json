@@ -2,9 +2,9 @@
   "name": "repetitivo",
   "version": "0.0.1",
   "description": "A system.",
-  "main": "src/repetitivo.scss",
+  "main": "lib/repetitivo/repetitivo.scss",
   "scripts": {
-    "build": "node-sass src/repetitivo.scss build/repetitivo.css",
+    "build": "node-sass lib/repetitivo/repetitivo.scss build/repetitivo.css",
     "start": "npm run build -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
