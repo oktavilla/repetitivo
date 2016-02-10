@@ -1,0 +1,63 @@
+@import "../helpers/util-functions";
+
+$base-font-size: 18px !default;
+$base-line-height: 1.5 !default;
+
+$scale-minor-second: 1.067;
+$scale-major-second: 1.125;
+$scale-minor-third: 1.2;
+$scale-major-third: 1.25;
+$scale-perfect-fourth: 1.333;
+$scale-augmented-fourth: 1.414;
+$scale-perfect-fifth: 1.5;
+$scale-golden-ratio: 1.618;
+
+$heading-font-family: "Georgia", serif !default;
+$heading-sizes: deca hecto kilo mega giga tera !default;
+$heading-scale: $scale-perfect-fourth !default;
+$heading-line-height: $base-line-height !default;
+$heading-font-feature-settings: "kern", "liga", "frac", "pnum" !default;
+$heading-font-weight: 400 !default;
+$heading-font-weight--light: 300 !default;
+$heading-font-weight--bold: 700 !default;
+
+$font-sizes: () !default;
+
+$default-font-sizes: (
+  deca: (
+    default: (
+      font-size: modular-scale(1, $base-font-size, $heading-scale),
+      line-height: $heading-line-height
+    )
+  ),
+  hecto: (
+    default: (
+      font-size: modular-scale(2, $base-font-size, $heading-scale),
+      line-height: $heading-line-height
+    )
+  ),
+  kilo: (
+    default: (
+      font-size: modular-scale(3, $base-font-size, $heading-scale),
+      line-height: $heading-line-height
+    )
+  ),
+  mega: (
+    default: (
+      font-size: modular-scale(4, $base-font-size, $heading-scale),
+      line-height: $heading-line-height
+    )
+  ),
+  giga: (
+    default: (
+      font-size: modular-scale(5, $base-font-size, $heading-scale),
+      line-height: $heading-line-height
+    )
+  ),
+  tera: (
+    default: (
+      font-size: modular-scale(6, $base-font-size, $heading-scale),
+      line-height: $heading-line-height
+    )
+  )
+);

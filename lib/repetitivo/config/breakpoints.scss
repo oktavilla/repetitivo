@@ -1,0 +1,29 @@
+$breakpoints: (
+  xs: (
+    min: 400
+  ),
+  pre-s: (
+    max: 599
+  ),
+  s: (
+    min: 600
+  ),
+  pre-m: (
+    max: 799
+  ),
+  m: (
+    min: 800
+  ),
+  pre-l: (
+    max: 999
+  ),
+  l: (
+    min: 1000
+  ),
+  pre-xl: (
+    max: 1199
+  ),
+  xl: (
+    min: 1200
+  )
+) !default;

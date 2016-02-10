@@ -1,0 +1,27 @@
+// Returns base to the exponent power.
+// @param {Map} $map The map of styles to render
+// @param {Unquoted string} $breakpoint Optional: render within respond-to breakpoint.
+// @return {Void}
+// @example
+//   @include styles-from-map((font-size: 1234px, line-height: 1)
+//   =>
+//   font-size: 1234px;
+//   line-height: 1;
+//
+//   @include styles-from-map((font-size: 1234px, line-height: 1, s)
+//   =>
+//   @include respond-to(s) {
+//     font-size: 1234px;
+//     line-height: 1;
+//   }
+@mixin styles-from-map($map, $breakpoint: null) {
+  @each $prop, $val in $map {
+    @if $breakpoint {
+      @include respond-to($breakpoint) {
+        #{$prop}: #{$val};
+      }
+    } @else {
+      #{$prop}: #{$val};
+    }
+  }
+}
