@@ -24,6 +24,11 @@ $heading-line-height: $base-line-height !default;
 $heading-font-feature-settings: "kern", "liga", "frac", "pnum" !default;
 $heading-font-weight: 700 !default;
 
+$lead-font-family: "Georgia", serif !default;
+$lead-line-height: $base-line-height !default;
+$lead-font-feature-settings: "kern", "liga", "frac", "pnum" !default;
+$lead-font-weight: 400 !default;
+
 $font-sizes: () !default;
 $default-font-sizes: ();
 

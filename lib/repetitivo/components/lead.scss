@@ -1,0 +1,11 @@
+@import "../patterns/typography";
+
+//
+// Component: Lead
+// =============================================================================
+$component-name: "Lead";
+$component-base: ".#{$component-name}";
+
+#{$component-base} {
+  @extend %lead;
+}
