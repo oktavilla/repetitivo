@@ -1,0 +1,29 @@
+@import "../patterns/typography";
+
+//
+// Component: Heading
+// =============================================================================
+$component-name: "Heading";
+$component-base: ".#{$component-name}";
+
+#{$component-base} {
+  @extend %heading-font;
+
+  @each $heading-size in $heading-sizes {
+    &--#{$heading-size} {
+      @extend %#{$heading-size}-font-size;
+    }
+  }
+
+  // Variant: Light
+  // ---------------------------------------------------------------------------
+  &--light {
+    @extend %heading-font--light;
+  }
+
+  // Variant: Bold
+  // ---------------------------------------------------------------------------
+  &--bold {
+    @extend %heading-font--bold;
+  }
+}

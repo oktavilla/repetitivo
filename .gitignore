@@ -1,0 +1,15 @@
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+*.log
+
+# Ignore Node modules.
+node_modules
+
+# Ignore build
+build
+
+# Ignore various unwanted files.
+.DS_Store

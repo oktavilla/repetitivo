@@ -1,0 +1,17 @@
+$breakpoints: (
+  xs: (
+    min: 400
+  ),
+  s: (
+    min: 600
+  ),
+  m: (
+    min: 800
+  ),
+  l: (
+    min: 1000
+  ),
+  xl: (
+    min: 1200
+  )
+) !default;

@@ -1,0 +1,42 @@
+@import "../config/typography";
+
+@import "../helpers/exports";
+@import "../helpers/respond-to";
+@import "../helpers/util-mixins";
+
+@include exports("typography") {
+  //
+  // Headings
+  // ---------------------------------------------------------------------------
+  %heading-font {
+    font-family: $heading-font-family;
+    font-feature-settings: $heading-font-feature-settings;
+    font-weight: $heading-font-weight;
+  }
+
+  %heading-font--light {
+    font-weight: $heading-font-weight--light;
+  }
+
+  %heading-font--bold {
+    font-weight: $heading-font-weight--bold;
+  }
+
+  //
+  // Font sizes
+  // ---------------------------------------------------------------------------
+  @each $heading-size in $heading-sizes {
+    %#{$heading-size}-font-size {
+      $merged-font-sizes: map-merge($default-font-sizes, $font-sizes);
+      $heading-size-map: map-get($merged-font-sizes, $heading-size);
+
+      @include styles-from-map(map-get($heading-size-map, "default"));
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($heading-size-map, $breakpoint) {
+          @include styles-from-map(map-get($heading-size-map, $breakpoint), $breakpoint);
+        }
+      }
+    }
+  }
+}

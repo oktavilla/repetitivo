@@ -1,0 +1,42 @@
+// Strip units from a number
+// @param {Number} $number The number to strip
+// @return {Number}
+// @example
+//   strip-units(4px) // 4
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+// Returns base to the exponent power.
+// @param {Number} $base The base number
+// @param {Number} $exponents The exponent to which to raise base
+// @return {Number}
+// @example
+//   pow(4, 4) // 256
+//   pow(4, -4) // 0.00390625
+@function pow($base, $exponents) {
+  $raised: 1;
+
+  @if $exponents >= 0 {
+    @for $i from 1 through $exponents {
+      $raised: $raised * $base;
+    }
+  } @else {
+    @for $i from $exponents to 0 {
+      $raised: $raised / $base;
+    }
+  }
+
+  @return $raised;
+}
+
+// Returns base to the exponent power.
+// @param {Number} $multiple The value up the scale
+// @param {Number} $base-size The base to start from
+// @param {Number} $ratio The scale to use
+// @return {Number}
+// @example
+//   modular-scale(2, 16px, 1.414) // 32px
+@function modular-scale($multiple, $base-size, $ratio) {
+  @return round($base-size * pow($ratio, $multiple));
+}
