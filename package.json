@@ -14,6 +14,7 @@
   },
   "author": "Oktavilla",
   "license": "ISC",
+  "private": true,
   "bugs": {
     "url": "https://github.com/Oktavilla/repetitivo/issues"
   },
