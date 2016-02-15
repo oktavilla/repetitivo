@@ -1,0 +1,11 @@
+@import "../patterns/typography";
+
+//
+// Component: Meta
+// =============================================================================
+$component-name: "Meta";
+$component-base: ".#{$component-name}";
+
+#{$component-base} {
+  @extend %meta;
+}
