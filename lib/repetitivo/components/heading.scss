@@ -9,9 +9,9 @@ $component-base: ".#{$component-name}";
 #{$component-base} {
   @extend %heading-font;
 
-  @each $heading-size in $heading-sizes {
-    &--#{$heading-size} {
-      @extend %#{$heading-size}-font-size;
+  @each $scale-size in $scale-sizes {
+    &--#{$scale-size} {
+      @extend %#{$scale-size}-font-size;
     }
   }
 

@@ -17,9 +17,10 @@ $scale-perfect-fourth: 1.333;
 $scale-augmented-fourth: 1.414;
 $scale-perfect-fifth: 1.5;
 $scale-golden-ratio: 1.618;
+$scale-sizes: deca hecto kilo mega giga tera !default;
+
 
 $heading-font-family: "Georgia", serif !default;
-$heading-sizes: deca hecto kilo mega giga tera !default;
 $heading-scale: $scale-perfect-fourth !default;
 $heading-line-height: $base-line-height !default;
 $heading-font-feature-settings: "kern", "liga", "frac", "pnum" !default;
@@ -30,11 +31,11 @@ $heading-font-weight--bold: 700 !default;
 $font-sizes: () !default;
 $default-font-sizes: ();
 
-@for $i from 1 through length($heading-sizes) {
-  $heading-size: nth($heading-sizes, $i);
+@for $i from 1 through length($scale-sizes) {
+  $scale-size: nth($scale-sizes, $i);
 
   $default-font-sizes: map-merge($default-font-sizes, (
-    $heading-size: (
+    $scale-size: (
       default: (font-size: modular-scale($i, $base-font-size, $scale-minor-second)),
       xs:      (font-size: modular-scale($i, $base-font-size, $scale-major-second)),
       s:       (font-size: modular-scale($i, $base-font-size, $scale-minor-third)),

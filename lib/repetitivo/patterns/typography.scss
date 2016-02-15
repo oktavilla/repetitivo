@@ -27,15 +27,15 @@
   //
   // Font sizes
   // ---------------------------------------------------------------------------
-  @each $heading-size in $heading-sizes {
-    %#{$heading-size}-font-size {
-      $heading-size-map: map-get($font-sizes, $heading-size);
+  @each $scale-size in $scale-sizes {
+    %#{$scale-size}-font-size {
+      $scale-size-map: map-get($font-sizes, $scale-size);
 
-      @include styles-from-map(map-get($heading-size-map, "default"));
+      @include styles-from-map(map-get($scale-size-map, "default"));
 
       @each $breakpoint, $val in $breakpoints {
-        @if map-has-key($heading-size-map, $breakpoint) {
-          @include styles-from-map(map-get($heading-size-map, $breakpoint), $breakpoint);
+        @if map-has-key($scale-size-map, $breakpoint) {
+          @include styles-from-map(map-get($scale-size-map, $breakpoint), $breakpoint);
         }
       }
     }
