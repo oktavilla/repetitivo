@@ -17,6 +17,19 @@
   }
 
   //
+  // Lead
+  // ---------------------------------------------------------------------------
+  %lead {
+    @extend %hecto-font-size;
+
+    font-family: $lead-font-family;
+    font-feature-settings: $lead-font-feature-settings;
+    font-weight: $lead-font-weight;
+
+    line-height: $lead-line-height;
+  }
+
+  //
   // Font sizes
   // ---------------------------------------------------------------------------
   @each $scale-size in $scale-sizes {
