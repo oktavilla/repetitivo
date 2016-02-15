@@ -6,6 +6,17 @@
 
 @include exports("typography") {
   //
+  // Base
+  // ---------------------------------------------------------------------------
+  %base-font {
+    @each $breakpoint, $val in $breakpoints {
+      @if map-has-key($base-font-size-scale, $breakpoint) {
+        @include styles-from-map(map-get($base-font-size-scale, $breakpoint), $breakpoint);
+      }
+    }
+  }
+
+  //
   // Headings
   // ---------------------------------------------------------------------------
   %heading-font {

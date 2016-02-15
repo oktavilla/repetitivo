@@ -1,22 +1,18 @@
 @import "../helpers/util-functions";
 
+$scale-sizes: deca hecto kilo mega giga tera !default;
+
 $base-font-color: map-get($colors, brightness-13) !default;
 $base-font-family: "Georgia", serif !default;
-$base-font-size: 18px !default;
+$base-font-size: 16px !default;
+$base-font-size-scale: (
+  xs: (font-size: modular-scale(1, $base-font-size, 1.125)),
+  m:  (font-size: modular-scale(1, $base-font-size, 1.2))
+) !default;
 $base-line-height: 1.5 !default;
 $base-webkit-font-smoothing: antialiased !default;
 $base-moz-osx-font-smoothing: grayscale !default;
 $base-text-rendering: optimizeLegibility !default;
-
-$scale-minor-second: 1.067;
-$scale-major-second: 1.125;
-$scale-minor-third: 1.2;
-$scale-major-third: 1.25;
-$scale-perfect-fourth: 1.333;
-$scale-augmented-fourth: 1.414;
-$scale-perfect-fifth: 1.5;
-$scale-golden-ratio: 1.618;
-$scale-sizes: deca hecto kilo mega giga tera !default;
 
 $heading-font-family: "Georgia", serif !default;
 $heading-line-height: $base-line-height !default;
@@ -36,12 +32,12 @@ $default-font-sizes: ();
 
   $default-font-sizes: map-merge($default-font-sizes, (
     $scale-size: (
-      default: (font-size: modular-scale($i, $base-font-size, $scale-minor-second)),
-      xs:      (font-size: modular-scale($i, $base-font-size, $scale-major-second)),
-      s:       (font-size: modular-scale($i, $base-font-size, $scale-minor-third)),
-      m:       (font-size: modular-scale($i, $base-font-size, $scale-major-third)),
-      l:       (font-size: modular-scale($i, $base-font-size, $scale-perfect-fourth)),
-      xl:      (font-size: modular-scale($i, $base-font-size, $scale-augmented-fourth))
+      default: (font-size: modular-scale($i, $base-font-size, 1.125)),
+      xs:      (font-size: modular-scale($i, $base-font-size, 1.15)),
+      s:       (font-size: modular-scale($i, $base-font-size, 1.2)),
+      m:       (font-size: modular-scale($i, $base-font-size, 1.25)),
+      l:       (font-size: modular-scale($i, $base-font-size, 1.3)),
+      xl:      (font-size: modular-scale($i, $base-font-size, 1.35))
     )
   ));
 }
