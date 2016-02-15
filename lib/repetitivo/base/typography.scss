@@ -1,0 +1,49 @@
+@import "../config/colors";
+@import "../config/typography";
+
+html,
+input,
+button,
+select,
+textarea {
+  color: $base-font-color;
+
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+
+  line-height: $base-line-height;
+
+  -webkit-font-smoothing: $base-webkit-font-smoothing;
+  -moz-osx-font-smoothing: $base-moz-osx-font-smoothing;
+  text-rendering: $base-text-rendering;
+}
+
+a {
+  color: map-get($colors, blue);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p,
+ul,
+ol,
+blockquote {
+  margin-top: 0;
+  margin-bottom: $base-font-size * $base-line-height;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
