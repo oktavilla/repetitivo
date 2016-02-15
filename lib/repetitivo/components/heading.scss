@@ -14,16 +14,4 @@ $component-base: ".#{$component-name}";
       @extend %#{$scale-size}-font-size;
     }
   }
-
-  // Variant: Light
-  // ---------------------------------------------------------------------------
-  &--light {
-    @extend %heading-font--light;
-  }
-
-  // Variant: Bold
-  // ---------------------------------------------------------------------------
-  &--bold {
-    @extend %heading-font--bold;
-  }
 }
