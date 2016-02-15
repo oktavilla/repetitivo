@@ -29,8 +29,7 @@
   // ---------------------------------------------------------------------------
   @each $heading-size in $heading-sizes {
     %#{$heading-size}-font-size {
-      $merged-font-sizes: map-merge($default-font-sizes, $font-sizes);
-      $heading-size-map: map-get($merged-font-sizes, $heading-size);
+      $heading-size-map: map-get($font-sizes, $heading-size);
 
       @include styles-from-map(map-get($heading-size-map, "default"));
 
