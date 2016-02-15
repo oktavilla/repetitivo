@@ -22,42 +22,19 @@ $heading-font-weight--light: 300 !default;
 $heading-font-weight--bold: 700 !default;
 
 $font-sizes: () !default;
+$default-font-sizes: ();
 
-$default-font-sizes: (
-  deca: (
-    default: (
-      font-size: modular-scale(1, $base-font-size, $heading-scale),
-      line-height: $heading-line-height
+@for $i from 1 through length($heading-sizes) {
+  $heading-size: nth($heading-sizes, $i);
+
+  $default-font-sizes: map-merge($default-font-sizes, (
+    $heading-size: (
+      default: (font-size: modular-scale($i, $base-font-size, $scale-minor-second)),
+      xs:      (font-size: modular-scale($i, $base-font-size, $scale-major-second)),
+      s:       (font-size: modular-scale($i, $base-font-size, $scale-minor-third)),
+      m:       (font-size: modular-scale($i, $base-font-size, $scale-major-third)),
+      l:       (font-size: modular-scale($i, $base-font-size, $scale-perfect-fourth)),
+      xl:      (font-size: modular-scale($i, $base-font-size, $scale-augmented-fourth))
     )
-  ),
-  hecto: (
-    default: (
-      font-size: modular-scale(2, $base-font-size, $heading-scale),
-      line-height: $heading-line-height
-    )
-  ),
-  kilo: (
-    default: (
-      font-size: modular-scale(3, $base-font-size, $heading-scale),
-      line-height: $heading-line-height
-    )
-  ),
-  mega: (
-    default: (
-      font-size: modular-scale(4, $base-font-size, $heading-scale),
-      line-height: $heading-line-height
-    )
-  ),
-  giga: (
-    default: (
-      font-size: modular-scale(5, $base-font-size, $heading-scale),
-      line-height: $heading-line-height
-    )
-  ),
-  tera: (
-    default: (
-      font-size: modular-scale(6, $base-font-size, $heading-scale),
-      line-height: $heading-line-height
-    )
-  )
-);
+  ));
+}

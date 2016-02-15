@@ -12,6 +12,8 @@
     font-family: $heading-font-family;
     font-feature-settings: $heading-font-feature-settings;
     font-weight: $heading-font-weight;
+
+    line-height: $heading-line-height;
   }
 
   %heading-font--light {
