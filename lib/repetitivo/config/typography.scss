@@ -1,10 +1,9 @@
 @import "../helpers/util-functions";
 
 $base-font-color: map-get($colors, brightness-13) !default;
-$base-font-family: Georgia, serif !default;
+$base-font-family: "Georgia", serif !default;
 $base-font-size: 18px !default;
 $base-line-height: 1.5 !default;
-
 $base-webkit-font-smoothing: antialiased !default;
 $base-moz-osx-font-smoothing: grayscale !default;
 $base-text-rendering: optimizeLegibility !default;
@@ -18,7 +17,6 @@ $scale-augmented-fourth: 1.414;
 $scale-perfect-fifth: 1.5;
 $scale-golden-ratio: 1.618;
 $scale-sizes: deca hecto kilo mega giga tera !default;
-
 
 $heading-font-family: "Georgia", serif !default;
 $heading-scale: $scale-perfect-fourth !default;
