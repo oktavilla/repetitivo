@@ -1,0 +1,17 @@
+$colors: () !default;
+
+$default-colors: (
+  brightness-0: #000,
+  brightness-13: #212121,
+  brightness-20: #333,
+  brightness-40: #666,
+  brightness-60: #999,
+  brightness-80: #ccc,
+  brightness-100: #fff,
+
+  black: #000,
+  blue: #08e,
+  white: #fff
+);
+
+$colors: map-merge($default-colors, $colors);
