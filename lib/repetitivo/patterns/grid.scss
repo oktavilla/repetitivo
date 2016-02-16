@@ -1,6 +1,8 @@
 @import "../config/grid";
 @import "../config/typography";
 
+@import "./spacing";
+
 @mixin grid-item($columns-and-context, $breakpoint: null) {
   @if type-of($columns-and-context) == number {
     $columns: $columns-and-context;
@@ -32,6 +34,12 @@
     font-size: 0;
   }
 
+  %grid-container--padded {
+    .Grid-item {
+      @extend %grid-item--padded;
+    }
+  }
+
   %grid-container--center {
     text-align: center;
   }
@@ -45,5 +53,9 @@
     text-align: left;
 
     font-size: $base-font-size;
+  }
+
+  %grid-item--padded {
+    @extend %spacing-gutter-padding-side;
   }
 }
