@@ -1,0 +1,61 @@
+@import "../config/grid";
+@import "../config/typography";
+
+@import "./spacing";
+
+@mixin grid-item($columns-and-context, $breakpoint: null) {
+  @if type-of($columns-and-context) == number {
+    $columns: $columns-and-context;
+    $context: null;
+    $columns-modifier: "--#{$columns}";
+  } @else {
+    $columns: nth($columns-and-context, 1);
+    $context: nth($columns-and-context, 3);
+    $columns-modifier: "--#{$columns}-of-#{$context}";
+  }
+
+  $colum-width: $columns / (if($context, $context, $grid-columns)) * 100%;
+
+  @if $breakpoint {
+    @include respond-to($breakpoint) {
+      .Grid-item-#{$breakpoint}#{$columns-modifier} {
+        width: $colum-width;
+      }
+    }
+  } @else {
+    .Grid-item#{$columns-modifier} {
+      width: $colum-width;
+    }
+  }
+}
+
+@include exports("grid") {
+  %grid-container {
+    font-size: 0;
+  }
+
+  %grid-container--padded {
+    .Grid-item {
+      @extend %grid-item--padded;
+    }
+  }
+
+  %grid-container--center {
+    text-align: center;
+  }
+
+  %grid-item {
+    display: inline-block;
+
+    width: 100%;
+
+    vertical-align: top;
+    text-align: left;
+
+    font-size: $base-font-size;
+  }
+
+  %grid-item--padded {
+    @extend %spacing-gutter-padding-side;
+  }
+}

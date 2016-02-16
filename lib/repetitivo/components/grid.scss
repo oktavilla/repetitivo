@@ -1,0 +1,33 @@
+//
+// Component: Grid
+// =============================================================================
+$component-name: "Grid";
+$component-base: ".#{$component-name}";
+
+#{$component-base} {
+  @extend %grid-container;
+
+  // Variant: Padded
+  // ---------------------------------------------------------------------------
+  &--padded {
+    @extend %grid-container--padded;
+  }
+
+  // Variant: Center
+  // ---------------------------------------------------------------------------
+  &--center {
+    @extend %grid-container--center;
+  }
+
+  // Element: Item
+  // ---------------------------------------------------------------------------
+  &-item {
+    @extend %grid-item;
+
+    // Variant: Padded
+    // -------------------------------------------------------------------------
+    &--padded {
+      @extend %grid-item--padded;
+    }
+  }
+}
