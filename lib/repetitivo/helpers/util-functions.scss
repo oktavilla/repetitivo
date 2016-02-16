@@ -17,14 +17,8 @@
 @function pow($base, $exponents) {
   $raised: 1;
 
-  @if $exponents >= 0 {
-    @for $i from 1 through $exponents {
-      $raised: $raised * $base;
-    }
-  } @else {
-    @for $i from $exponents to 0 {
-      $raised: $raised / $base;
-    }
+  @for $i from 1 through abs($exponents) {
+    $raised: if($exponents >= 0, $raised * $base, $raised / $base);
   }
 
   @return $raised;
