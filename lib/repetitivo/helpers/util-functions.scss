@@ -13,7 +13,7 @@
 // @return {Number}
 // @example
 //   pow(4, 4) // 256
-//   pow(4, -4) // 0.00390625
+//   pow(4, -4) // 0.00391
 @function pow($base, $exponents) {
   $raised: 1;
 
