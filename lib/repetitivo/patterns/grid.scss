@@ -1,6 +1,8 @@
 @import "../config/grid";
 @import "../config/typography";
 
+@import "../helpers/exports";
+
 @import "./spacing";
 
 @mixin grid-item($columns-and-context, $breakpoint: null) {
