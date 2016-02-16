@@ -1,0 +1,15 @@
+@import "../config/wrapper";
+
+@import "../helpers/exports";
+
+@include exports("wrapper") {
+  %wrapper {
+    max-width: $wrapper-max-width + ($wrapper-spacing * 2);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: $wrapper-spacing;
+    padding-right: $wrapper-spacing;
+  }
+}

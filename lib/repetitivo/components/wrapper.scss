@@ -1,0 +1,11 @@
+@import "../patterns/wrapper";
+
+//
+// Component: Wrapper
+// =============================================================================
+$component-name: "Wrapper";
+$component-base: ".#{$component-name}";
+
+#{$component-base} {
+  @extend %wrapper;
+}
