@@ -21,11 +21,17 @@ textarea {
 }
 
 a {
-  color: map-get($colors, blue);
-  text-decoration: none;
+  color: $base-font-color-link;
+  text-decoration: $base-text-decoration-link;
 
   &:hover {
+    color: $base-font-color-link--hover;
     text-decoration: underline;
+    text-decoration: $base-text-decoration-link--hover;
+  }
+
+  &:visited {
+    color: $base-font-color-link--visited;
   }
 }
 

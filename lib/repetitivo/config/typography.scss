@@ -5,6 +5,9 @@
 $scale-sizes: deca hecto kilo mega giga tera !default;
 
 $base-font-color: map-get($colors, brightness-13) !default;
+$base-font-color-link: map-get($colors, blue) !default;
+$base-font-color-link--hover: darken($base-font-color-link, 10%) !default;
+$base-font-color-link--visited: $base-font-color-link !default;
 $base-font-family: "Georgia", serif !default;
 $base-font-size: 16px !default;
 $base-font-size-scale: (
@@ -15,6 +18,8 @@ $base-line-height: 1.5 !default;
 $base-webkit-font-smoothing: antialiased !default;
 $base-moz-osx-font-smoothing: grayscale !default;
 $base-text-rendering: optimizeLegibility !default;
+$base-text-decoration-link: none !default;
+$base-text-decoration-link--hover: underline !default;
 
 $heading-font-family: "Georgia", serif !default;
 $heading-line-height: $base-line-height !default;
