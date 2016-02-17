@@ -1,0 +1,36 @@
+@import "../config/fonts";
+
+@import "../helpers/util-functions";
+
+@each $font in $fonts {
+  $font: nth($font, 1);
+
+  @font-face {
+    $sources: "";
+    $files: map-get($font, files);
+    font-family: map-get($font, family);
+
+    @for $i from 1 through length($files) {
+      $file: nth($files, $i);
+      $formats: map-get($font, formats);
+
+      @if $formats {
+        $format: nth($formats, $i);
+      } @else {
+        $format: last(str-split($file, "."));
+      }
+
+      $sources: "#{$sources}, url(\"#{$file}\") format(\"#{$format}\")";
+    }
+
+    src: #{str-slice($sources, 3)}; // Remove leading comma and space
+
+    @if map-has-key($font, weight) {
+      font-weight: map-get($font, weight);
+    }
+
+    @if map-has-key($font, style) {
+      font-style: map-get($font, style);
+    }
+  }
+}
