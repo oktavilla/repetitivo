@@ -49,7 +49,7 @@ ul,
 ol,
 blockquote {
   margin-top: 0;
-  margin-bottom: $base-font-size * $base-line-height;
+  margin-bottom: 1em;
 
   &:last-child {
     margin-bottom: 0;
