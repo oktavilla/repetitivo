@@ -14,6 +14,7 @@ $base-font-size-scale: (
   xs: (font-size: modular-scale(1, $base-font-size, 1.125)),
   m:  (font-size: modular-scale(1, $base-font-size, 1.2))
 ) !default;
+$base-font-feature-settings: "kern", "liga", "frac", "pnum" !default;
 $base-line-height: 1.5 !default;
 $base-webkit-font-smoothing: antialiased !default;
 $base-moz-osx-font-smoothing: grayscale !default;
