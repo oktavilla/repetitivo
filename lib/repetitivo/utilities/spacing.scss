@@ -1,0 +1,17 @@
+@import "../config/spacing";
+
+@import "../helpers/util-functions";
+
+@import "../patterns/spacing";
+
+$default-spacing-utilities: top bottom inner-top inner-bottom;
+
+@each $default-spacing-utility in $default-spacing-utilities {
+  @if index($spacing-utilities, $default-spacing-utility) {
+    @each $spacing-scale-size in $spacing-scale-sizes {
+      .u-spacing#{camelize($default-spacing-utility)}#{$spacing-scale-size} {
+        @extend %spacing-#{$default-spacing-utility}-#{to-lower-case($spacing-scale-size)};
+      }
+    }
+  }
+}

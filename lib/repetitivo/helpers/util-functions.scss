@@ -69,3 +69,36 @@
 @function last($list) {
   @return nth($list, length($list));
 }
+
+// Capitalize string
+// @param {String} String to uppercase first letter in
+// @return {String}
+// @example
+//   capitalize("hello") // Hello
+@function capitalize($string) {
+  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+// Camelize string
+// @param {String} String to camelize
+// @return {String}
+// @example
+//   camelize("hello-world") // HelloWorld
+@function camelize($string) {
+  $progress: $string;
+  $result: "";
+  $exclude: " ", "-", "_";
+
+  @while str-length($progress) > 0 {
+    $char: str-slice($progress, 1, 1);
+
+    @if index($exclude, $char) {
+      $progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+    } @else {
+      $result: $result + $char;
+      $progress: str-slice($progress, 2);
+    }
+ }
+
+  @return capitalize($result);
+}

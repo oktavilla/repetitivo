@@ -17,4 +17,57 @@
       }
     }
   }
+
+  @each $spacing-size in $spacing-sizes {
+    $size: nth($spacing-size, 1);
+    $size-map: nth($spacing-size, 2);
+
+    %spacing-top-#{to-lower-case($size)} {
+      margin-top: map-get($size-map, default);
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($size-map, $breakpoint) {
+          @include respond-to($breakpoint) {
+            margin-top: map-get($size-map, $breakpoint);
+          }
+        }
+      }
+    }
+
+    %spacing-bottom-#{to-lower-case($size)} {
+      margin-bottom: map-get($size-map, default);
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($size-map, $breakpoint) {
+          @include respond-to($breakpoint) {
+            margin-bottom: map-get($size-map, $breakpoint);
+          }
+        }
+      }
+    }
+
+    %spacing-inner-top-#{to-lower-case($size)} {
+      padding-top: map-get($size-map, default);
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($size-map, $breakpoint) {
+          @include respond-to($breakpoint) {
+            padding-top: map-get($size-map, $breakpoint);
+          }
+        }
+      }
+    }
+
+    %spacing-inner-bottom-#{to-lower-case($size)} {
+      padding-bottom: map-get($size-map, default);
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($size-map, $breakpoint) {
+          @include respond-to($breakpoint) {
+            padding-bottom: map-get($size-map, $breakpoint);
+          }
+        }
+      }
+    }
+  }
 }

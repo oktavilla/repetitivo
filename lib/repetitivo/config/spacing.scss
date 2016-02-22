@@ -1,5 +1,29 @@
+$spacing-base: 10px !default;
 $spacing-gutters: (
   default: 20px,
   s: 26px,
   m: 32px
 ) !default;
+
+$spacing-sizes: () !default;
+$default-spacing-sizes: ();
+
+$spacing-scale-sizes: XS S M L XL XXL !default;
+$spacing-utilities: top bottom inner-top inner-bottom !default;
+
+@for $i from 1 through length($spacing-scale-sizes) {
+  $spacing-scale-size: nth($spacing-scale-sizes, $i);
+
+  $default-spacing-sizes: map-merge($default-spacing-sizes, (
+    $spacing-scale-size: (
+      default: round($spacing-base * $i * 1.0),
+      xs:      round($spacing-base * $i * 1.2),
+      s:       round($spacing-base * $i * 1.4),
+      m:       round($spacing-base * $i * 1.6),
+      l:       round($spacing-base * $i * 1.8),
+      xl:      round($spacing-base * $i * 2.0)
+    )
+  ));
+}
+
+$spacing-sizes: map-merge($default-spacing-sizes, $spacing-sizes);
