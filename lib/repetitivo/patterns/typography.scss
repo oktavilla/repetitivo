@@ -9,6 +9,18 @@
   // Base
   // ---------------------------------------------------------------------------
   %base-font {
+    color: $base-font-color;
+
+    font-family: $base-font-family;
+    font-feature-settings: $base-font-feature-settings;
+    font-size: $base-font-size;
+
+    line-height: $base-line-height;
+
+    -webkit-font-smoothing: $base-webkit-font-smoothing;
+    -moz-osx-font-smoothing: $base-moz-osx-font-smoothing;
+    text-rendering: $base-text-rendering;
+
     @each $breakpoint, $val in $breakpoints {
       @if map-has-key($base-font-size-scale, $breakpoint) {
         @include styles-from-map(map-get($base-font-size-scale, $breakpoint), $breakpoint);
