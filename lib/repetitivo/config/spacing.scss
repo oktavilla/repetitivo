@@ -1,4 +1,4 @@
-$spacing-base: 10px !default;
+$spacing-base: 5px !default;
 $spacing-gutters: (
   default: 20px,
   s: 26px,
@@ -8,7 +8,7 @@ $spacing-gutters: (
 $spacing-sizes: () !default;
 $default-spacing-sizes: ();
 
-$spacing-scale-sizes: XS S M L XL XXL !default;
+$spacing-scale-sizes: XXS XS S M L XL XXL !default;
 $spacing-utilities: top bottom inner-top inner-bottom !default;
 
 @for $i from 1 through length($spacing-scale-sizes) {
