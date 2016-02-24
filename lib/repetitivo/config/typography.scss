@@ -18,9 +18,10 @@ $base-font-color-link--hover: darken($base-font-color-link, 10%) !default;
 $base-font-color-link--visited: $base-font-color-link !default;
 $base-font-family: "Georgia", serif !default;
 $base-font-size: 16px !default;
+$base-scale-factors: $metric-scale-factors !default;
 $base-font-size-scale: (
-  xs: (font-size: modular-scale(1, $base-font-size, 1.125)),
-  m:  (font-size: modular-scale(1, $base-font-size, 1.2))
+  xs: (font-size: modular-scale(1, $base-font-size, map-get($base-scale-factors, xs))),
+  m:  (font-size: modular-scale(1, $base-font-size, map-get($base-scale-factors, m))),
 ) !default;
 $base-font-feature-settings: "kern", "liga", "frac", "pnum", "onum" !default;
 $base-line-height: 1.5 !default;
