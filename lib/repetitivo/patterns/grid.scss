@@ -48,14 +48,14 @@
   }
 
   %grid-item {
+    @extend %base-font;
+
     display: inline-block;
 
     width: 100%;
 
     vertical-align: top;
     text-align: left;
-
-    font-size: $base-font-size;
   }
 
   %grid-item--padded {
