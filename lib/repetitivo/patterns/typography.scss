@@ -43,13 +43,19 @@
   // Lead
   // ---------------------------------------------------------------------------
   %lead {
-    @extend %hecto-font-size;
+    @include styles-from-map(map-get($lead-sizes, "default"));
 
     font-family: $lead-font-family;
     font-feature-settings: $lead-font-feature-settings;
     font-weight: $lead-font-weight;
 
     line-height: $lead-line-height;
+
+    @each $breakpoint, $val in $breakpoints {
+      @if map-has-key($lead-sizes, $breakpoint) {
+        @include styles-from-map(map-get($lead-sizes, $breakpoint), $breakpoint);
+      }
+    }
   }
 
   //
