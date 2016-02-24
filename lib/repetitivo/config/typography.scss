@@ -53,9 +53,10 @@ $lead-sizes: (
 
 $meta-font-family: "Arial", sans-serif !default;
 $meta-font-size: 14px !default;
+$meta-scale-factors: $metric-scale-factors !default;
 $meta-font-size-scale: (
-  xs: (font-size: modular-scale(1, $meta-font-size, 1.1)),
-  m:  (font-size: modular-scale(1, $meta-font-size, 1.15))
+  xs: (font-size: modular-scale(1, $meta-font-size, map-get($meta-scale-factors, xs))),
+  m:  (font-size: modular-scale(1, $meta-font-size, map-get($meta-scale-factors, m))),
 ) !default;
 
 $metric-font-sizes: () !default;
