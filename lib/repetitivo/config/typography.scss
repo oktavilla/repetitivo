@@ -31,14 +31,14 @@ $base-text-decoration-link: none !default;
 $base-text-decoration-link--hover: underline !default;
 
 $heading-font-family: "Georgia", serif !default;
-$heading-line-height: $base-line-height !default;
-$heading-font-feature-settings: "kern", "liga", "frac", "pnum", "onum" !default;
+$heading-line-height: inherit !default;
+$heading-font-feature-settings: inherit !default;
 $heading-font-weight: 700 !default;
-$heading-text-align: left !default;
+$heading-text-align: inherit !default;
 
 $lead-font-family: "Georgia", serif !default;
-$lead-line-height: $base-line-height !default;
-$lead-font-feature-settings: "kern", "liga", "frac", "pnum", "onum" !default;
+$lead-line-height: inherit !default;
+$lead-font-feature-settings: inherit !default;
 $lead-font-weight: 400 !default;
 $lead-scale-factors: $scale-factors !default;
 $lead-size-multiplier: 1 !default;
