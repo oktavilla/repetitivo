@@ -2,8 +2,8 @@
 
 @import "../helpers/util-functions";
 
-$scale-sizes: deca hecto kilo mega giga tera !default;
-$scale-factors: (
+$metric-scale-sizes: deca hecto kilo mega giga tera !default;
+$metric-scale-factors: (
   default: 1.125,
   xs:      1.15,
   s:       1.2,
@@ -58,22 +58,22 @@ $meta-font-size-scale: (
   m:  (font-size: modular-scale(1, $meta-font-size, 1.15))
 ) !default;
 
-$font-sizes: () !default;
-$default-font-sizes: ();
+$metric-font-sizes: () !default;
+$default-metric-font-sizes: ();
 
-@for $i from 1 through length($scale-sizes) {
-  $scale-size: nth($scale-sizes, $i);
+@for $i from 1 through length($metric-scale-sizes) {
+  $metric-scale-size: nth($metric-scale-sizes, $i);
 
-  $default-font-sizes: map-merge($default-font-sizes, (
-    $scale-size: (
-      default: (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, default))),
-      xs:      (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, xs))),
-      s:       (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, s))),
-      m:       (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, m))),
-      l:       (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, l))),
-      xl:      (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, xl)))
+  $default-metric-font-sizes: map-merge($default-metric-font-sizes, (
+    $metric-scale-size: (
+      default: (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, default))),
+      xs:      (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, xs))),
+      s:       (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, s))),
+      m:       (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, m))),
+      l:       (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, l))),
+      xl:      (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, xl)))
     )
   ));
 }
 
-$font-sizes: map-merge($default-font-sizes, $font-sizes);
+$metric-font-sizes: map-merge($default-metric-font-sizes, $metric-font-sizes);

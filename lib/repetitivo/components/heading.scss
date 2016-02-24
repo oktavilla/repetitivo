@@ -11,9 +11,9 @@ $component-base: ".#{$component-name}";
 
   text-align: $heading-text-align;
 
-  @each $scale-size in $scale-sizes {
-    &--#{$scale-size} {
-      @extend %#{$scale-size}-font-size;
+  @each $metric-scale-size in $metric-scale-sizes {
+    &--#{$metric-scale-size} {
+      @extend %#{$metric-scale-size}-font-size;
     }
   }
 }

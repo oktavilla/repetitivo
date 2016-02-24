@@ -80,15 +80,15 @@
   //
   // Font sizes
   // ---------------------------------------------------------------------------
-  @each $scale-size in $scale-sizes {
-    %#{$scale-size}-font-size {
-      $scale-size-map: map-get($font-sizes, $scale-size);
+  @each $metric-scale-size in $metric-scale-sizes {
+    %#{$metric-scale-size}-font-size {
+      $metric-scale-size-map: map-get($metric-font-sizes, $metric-scale-size);
 
-      @include styles-from-map(map-get($scale-size-map, "default"));
+      @include styles-from-map(map-get($metric-scale-size-map, "default"));
 
       @each $breakpoint, $val in $breakpoints {
-        @if map-has-key($scale-size-map, $breakpoint) {
-          @include styles-from-map(map-get($scale-size-map, $breakpoint), $breakpoint);
+        @if map-has-key($metric-scale-size-map, $breakpoint) {
+          @include styles-from-map(map-get($metric-scale-size-map, $breakpoint), $breakpoint);
         }
       }
     }
