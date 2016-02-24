@@ -41,14 +41,13 @@ $lead-line-height: inherit !default;
 $lead-font-feature-settings: inherit !default;
 $lead-font-weight: 400 !default;
 $lead-scale-factors: $scale-factors !default;
-$lead-size-multiplier: 1 !default;
 $lead-sizes: (
-  default: (font-size: modular-scale($lead-size-multiplier, $base-font-size, map-get($lead-scale-factors, default))),
-  xs:      (font-size: modular-scale($lead-size-multiplier, $base-font-size, map-get($lead-scale-factors, xs))),
-  s:       (font-size: modular-scale($lead-size-multiplier, $base-font-size, map-get($lead-scale-factors, s))),
-  m:       (font-size: modular-scale($lead-size-multiplier, $base-font-size, map-get($lead-scale-factors, m))),
-  l:       (font-size: modular-scale($lead-size-multiplier, $base-font-size, map-get($lead-scale-factors, l))),
-  xl:      (font-size: modular-scale($lead-size-multiplier, $base-font-size, map-get($lead-scale-factors, xl)))
+  default: (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, default))),
+  xs:      (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, xs))),
+  s:       (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, s))),
+  m:       (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, m))),
+  l:       (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, l))),
+  xl:      (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, xl)))
 );
 
 $meta-font-family: "Arial", sans-serif !default;
