@@ -9,6 +9,8 @@ $component-base: ".#{$component-name}";
 #{$component-base} {
   @extend %heading-font;
 
+  text-align: $heading-text-align;
+
   @each $scale-size in $scale-sizes {
     &--#{$scale-size} {
       @extend %#{$scale-size}-font-size;
