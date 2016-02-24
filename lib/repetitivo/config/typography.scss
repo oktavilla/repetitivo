@@ -41,7 +41,7 @@ $lead-font-family: inherit !default;
 $lead-line-height: inherit !default;
 $lead-font-feature-settings: inherit !default;
 $lead-font-weight: 400 !default;
-$lead-scale-factors: $scale-factors !default;
+$lead-scale-factors: $metric-scale-factors !default;
 $lead-sizes: (
   default: (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, default))),
   xs:      (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, xs))),
