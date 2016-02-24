@@ -3,6 +3,14 @@
 @import "../helpers/util-functions";
 
 $scale-sizes: deca hecto kilo mega giga tera !default;
+$scale-factors: (
+  default: 1.125,
+  xs:      1.15,
+  s:       1.2,
+  m:       1.25,
+  l:       1.3,
+  xl:      1.35
+) !default;
 
 $base-font-color: map-get($colors, brightness-13) !default;
 $base-font-color-link: map-get($colors, blue) !default;
@@ -48,12 +56,12 @@ $default-font-sizes: ();
 
   $default-font-sizes: map-merge($default-font-sizes, (
     $scale-size: (
-      default: (font-size: modular-scale($i, $base-font-size, 1.125)),
-      xs:      (font-size: modular-scale($i, $base-font-size, 1.15)),
-      s:       (font-size: modular-scale($i, $base-font-size, 1.2)),
-      m:       (font-size: modular-scale($i, $base-font-size, 1.25)),
-      l:       (font-size: modular-scale($i, $base-font-size, 1.3)),
-      xl:      (font-size: modular-scale($i, $base-font-size, 1.35))
+      default: (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, default))),
+      xs:      (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, xs))),
+      s:       (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, s))),
+      m:       (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, m))),
+      l:       (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, l))),
+      xl:      (font-size: modular-scale($i, $base-font-size, map-get($scale-factors, xl)))
     )
   ));
 }
