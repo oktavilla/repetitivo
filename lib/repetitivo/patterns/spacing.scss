@@ -22,6 +22,54 @@
     $size: nth($spacing-size, 1);
     $size-map: nth($spacing-size, 2);
 
+    %spacing-#{to-lower-case($size)} {
+      margin: map-get($size-map, default);
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($size-map, $breakpoint) {
+          @include respond-to($breakpoint) {
+            margin: map-get($size-map, $breakpoint);
+          }
+        }
+      }
+    }
+
+    %spacing-#{to-lower-case($size)}-negative {
+      margin: map-get($size-map, default) * -1;
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($size-map, $breakpoint) {
+          @include respond-to($breakpoint) {
+            margin: map-get($size-map, $breakpoint) * -1;
+          }
+        }
+      }
+    }
+
+    %spacing-left-#{to-lower-case($size)} {
+      margin-left: map-get($size-map, default);
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($size-map, $breakpoint) {
+          @include respond-to($breakpoint) {
+            margin-left: map-get($size-map, $breakpoint);
+          }
+        }
+      }
+    }
+
+    %spacing-right-#{to-lower-case($size)} {
+      margin-right: map-get($size-map, default);
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($size-map, $breakpoint) {
+          @include respond-to($breakpoint) {
+            margin-right: map-get($size-map, $breakpoint);
+          }
+        }
+      }
+    }
+
     %spacing-top-#{to-lower-case($size)} {
       margin-top: map-get($size-map, default);
 
@@ -41,6 +89,30 @@
         @if map-has-key($size-map, $breakpoint) {
           @include respond-to($breakpoint) {
             margin-bottom: map-get($size-map, $breakpoint);
+          }
+        }
+      }
+    }
+
+    %spacing-inner-left-#{to-lower-case($size)} {
+      padding-left: map-get($size-map, default);
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($size-map, $breakpoint) {
+          @include respond-to($breakpoint) {
+            padding-left: map-get($size-map, $breakpoint);
+          }
+        }
+      }
+    }
+
+    %spacing-inner-right-#{to-lower-case($size)} {
+      padding-right: map-get($size-map, default);
+
+      @each $breakpoint, $val in $breakpoints {
+        @if map-has-key($size-map, $breakpoint) {
+          @include respond-to($breakpoint) {
+            padding-right: map-get($size-map, $breakpoint);
           }
         }
       }
