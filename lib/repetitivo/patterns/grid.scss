@@ -17,17 +17,17 @@
     $columns-modifier: "--#{$columns}-of-#{$context}";
   }
 
-  $colum-width: grid-column-width($columns, if($context, $context, $grid-columns));
+  $column-width: grid-column-width($columns, if($context, $context, $grid-columns));
 
   @if $breakpoint {
     @include respond-to($breakpoint) {
       .Grid-item-#{$breakpoint}#{$columns-modifier} {
-        width: $colum-width;
+        width: $column-width;
       }
     }
   } @else {
     .Grid-item#{$columns-modifier} {
-      width: $colum-width;
+      width: $column-width;
     }
   }
 }
