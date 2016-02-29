@@ -5,6 +5,9 @@
 !/tmp/.keep
 *.log
 
+# Ignore Gem-related files
+Gemfile.lock
+
 # Ignore Node modules.
 node_modules
 
