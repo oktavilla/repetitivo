@@ -17,7 +17,7 @@
     $columns-modifier: "--#{$columns}-of-#{$context}";
   }
 
-  $colum-width: $columns / (if($context, $context, $grid-columns)) * 100%;
+  $colum-width: grid-column-width($columns, if($context, $context, $grid-columns));
 
   @if $breakpoint {
     @include respond-to($breakpoint) {
