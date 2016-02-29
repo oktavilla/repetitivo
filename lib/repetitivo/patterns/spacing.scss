@@ -3,19 +3,23 @@
 
 @import "../helpers/exports";
 
-@include exports("spacing") {
-  %spacing-gutter-padding-side {
-    padding-left: map-get($spacing-gutters, default) / 2;
-    padding-right: map-get($spacing-gutters, default) / 2;
+@mixin spacing-gutter-padding-side {
+  padding-left: map-get($spacing-gutters, default) / 2;
+  padding-right: map-get($spacing-gutters, default) / 2;
 
-    @each $breakpoint, $val in $breakpoints {
-      @if map-has-key($spacing-gutters, $breakpoint) {
-        @include respond-to($breakpoint) {
-          padding-left: map-get($spacing-gutters, $breakpoint) / 2;
-          padding-right: map-get($spacing-gutters, $breakpoint) / 2;
-        }
+  @each $breakpoint, $val in $breakpoints {
+    @if map-has-key($spacing-gutters, $breakpoint) {
+      @include respond-to($breakpoint) {
+        padding-left: map-get($spacing-gutters, $breakpoint) / 2;
+        padding-right: map-get($spacing-gutters, $breakpoint) / 2;
       }
     }
+  }
+}
+
+@include exports("spacing") {
+  %spacing-gutter-padding-side {
+    @include spacing-gutter-padding-side;
   }
 
   @each $spacing-size in $spacing-sizes {
