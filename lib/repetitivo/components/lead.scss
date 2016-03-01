@@ -7,5 +7,5 @@ $component-name: "Lead";
 $component-base: ".#{$component-name}";
 
 #{$component-base} {
-  @extend %lead;
+  @extend %lead-font;
 }
