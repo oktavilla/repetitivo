@@ -15,7 +15,6 @@ $metric-scale-factors: (
 $base-font-color: map-get($colors, brightness-13) !default;
 $base-font-color-link: map-get($colors, blue) !default;
 $base-font-color-link--hover: darken($base-font-color-link, 10%) !default;
-$base-font-color-link--visited: $base-font-color-link !default;
 $base-font-family: "Georgia", serif !default;
 $base-font-size: 16px !default;
 $base-scale-factors: $metric-scale-factors !default;
