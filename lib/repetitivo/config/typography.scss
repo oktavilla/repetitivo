@@ -24,8 +24,7 @@ $base-font-size-scale: (
 ) !default;
 $base-font-feature-settings: "kern", "liga", "frac", "pnum", "onum" !default;
 $base-line-height: 1.5 !default;
-$base-webkit-font-smoothing: antialiased !default;
-$base-moz-osx-font-smoothing: grayscale !default;
+$base-pixel-antialiasing: false !default;
 $base-text-rendering: optimizeLegibility !default;
 $base-text-decoration-link: none !default;
 $base-text-decoration-link--hover: underline !default;
