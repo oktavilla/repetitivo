@@ -29,11 +29,9 @@ $base-text-rendering: optimizeLegibility !default;
 $base-text-decoration-link: none !default;
 $base-text-decoration-link--hover: underline !default;
 
-$heading-font-family: inherit !default;
-$heading-line-height: inherit !default;
-$heading-font-feature-settings: inherit !default;
-$heading-font-weight: 700 !default;
-$heading-text-align: inherit !default;
+$heading-font-family: null !default;
+$heading-font-style: null !default;
+$heading-font-weight: null !default;
 
 $lead-font-family: inherit !default;
 $lead-line-height: inherit !default;

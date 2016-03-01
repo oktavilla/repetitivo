@@ -41,10 +41,8 @@
   // ---------------------------------------------------------------------------
   %heading-font {
     font-family: $heading-font-family;
-    font-feature-settings: $heading-font-feature-settings;
+    font-style: $heading-font-style;
     font-weight: $heading-font-weight;
-
-    line-height: $heading-line-height;
   }
 
   //
