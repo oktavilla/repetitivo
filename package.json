@@ -4,7 +4,7 @@
   "description": "A system.",
   "main": "lib/repetitivo/repetitivo.scss",
   "scripts": {
-    "build": "node-sass lib/repetitivo/repetitivo.scss build/repetitivo.css",
+    "build": "node-sass lib/repetitivo.scss build/repetitivo.css",
     "start": "npm run build -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
