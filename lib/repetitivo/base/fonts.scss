@@ -12,6 +12,9 @@
 
     @for $i from 1 through length($files) {
       $file: nth($files, $i);
+
+      // Use explicit formats if they are defined in the config
+      // Use file extension otherwise
       $formats: map-get($font, formats);
 
       @if $formats {
