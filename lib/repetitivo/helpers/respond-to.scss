@@ -1,6 +1,6 @@
 @import "../config/breakpoints";
 
-@import "./util-functions";
+@import "../functions/strip-units";
 
 @mixin respond-to($point, $max: null, $type: auto, $value: width, $media: screen) {
   $min: null;

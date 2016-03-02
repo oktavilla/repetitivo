@@ -1,0 +1,9 @@
+// Get grid column width
+// @param {Number} Columns you want to render
+// @param {Number} Context you are in
+// @return {Length}
+// @example
+//   grid-column-width(6, 12) // 50%
+@function grid-column-width($columns, $context) {
+  @return $columns / $context * 100%;
+}
