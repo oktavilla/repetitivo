@@ -4,9 +4,9 @@
 
 @import "../patterns/spacing";
 
-$default-spacing-utilities: top bottom inner-top inner-bottom;
+$available-spacing-utilities: top bottom inner-top inner-bottom;
 
-@each $default-spacing-utility in $default-spacing-utilities {
+@each $default-spacing-utility in $available-spacing-utilities {
   @if index($spacing-utilities, $default-spacing-utility) {
     @each $spacing-scale-size in $spacing-scale-sizes {
       .u-spacing#{camelize($default-spacing-utility)}#{$spacing-scale-size} {
