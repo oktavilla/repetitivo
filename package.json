@@ -2,7 +2,7 @@
   "name": "repetitivo",
   "version": "0.0.1",
   "description": "A system.",
-  "main": "lib/repetitivo/repetitivo.scss",
+  "main": "lib/repetitivo.scss",
   "scripts": {
     "build": "node-sass lib/repetitivo.scss build/repetitivo.css",
     "start": "npm run build -- --watch",
