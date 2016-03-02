@@ -5,11 +5,14 @@
 @import "../../helpers/util-mixins";
 
 @include exports("typography/meta") {
-  %meta {
+  %meta-font {
     font-family: $meta-font-family;
-    font-size: $meta-font-size;
     font-style: $meta-font-style;
     font-weight: $meta-font-weight;
+  }
+
+  %meta-font-size {
+    font-size: $meta-font-size;
 
     @each $breakpoint, $val in $breakpoints {
       @if map-has-key($meta-font-size-scale, $breakpoint) {
