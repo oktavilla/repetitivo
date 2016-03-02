@@ -1,5 +1,3 @@
-@import "./colors";
-
 @import "../helpers/util-functions";
 
 $metric-scale-sizes: deca hecto kilo mega giga tera !default;
@@ -12,8 +10,8 @@ $metric-scale-factors: (
   xl:      1.35
 ) !default;
 
-$base-font-color: map-get($colors, brightness-13) !default;
-$base-font-color-link: map-get($colors, blue) !default;
+$base-font-color: #222 !default;
+$base-font-color-link: #00f !default;
 $base-font-color-link--hover: darken($base-font-color-link, 10%) !default;
 $base-font-family: "Georgia", serif !default;
 $base-font-size: 16px !default;
