@@ -1,0 +1,24 @@
+@import "./default-scale-factors";
+
+@import "../../helpers/util-functions";
+
+$base-font-color: #222 !default;
+$base-font-color-link: #00f !default;
+$base-font-color-link--hover: darken($base-font-color-link, 10%) !default;
+
+$base-font-family: "Georgia", serif !default;
+$base-font-size: 16px !default;
+$base-font-feature-settings: "kern", "liga", "frac", "pnum", "onum" !default;
+
+$base-line-height: 1.5 !default;
+$base-pixel-antialiasing: false !default;
+$base-text-rendering: optimizeLegibility !default;
+
+$base-text-decoration-link: none !default;
+$base-text-decoration-link--hover: underline !default;
+
+$base-scale-factors: $default-scale-factors !default;
+$base-font-size-scale: (
+  xs: (font-size: modular-scale(1, $base-font-size, map-get($base-scale-factors, xs))),
+  m:  (font-size: modular-scale(1, $base-font-size, map-get($base-scale-factors, m))),
+) !default;

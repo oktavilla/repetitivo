@@ -1,0 +1,18 @@
+@import "../../config/breakpoints";
+@import "../../config/typography/meta";
+
+@import "../../helpers/exports";
+@import "../../helpers/util-mixins";
+
+@include exports("typography/meta") {
+  %meta {
+    font-family: $meta-font-family;
+    font-size: $meta-font-size;
+
+    @each $breakpoint, $val in $breakpoints {
+      @if map-has-key($meta-font-size-scale, $breakpoint) {
+        @include styles-from-map(map-get($meta-font-size-scale, $breakpoint), $breakpoint);
+      }
+    }
+  }
+}

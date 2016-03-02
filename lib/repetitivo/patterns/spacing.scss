@@ -2,6 +2,7 @@
 @import "../config/spacing";
 
 @import "../helpers/exports";
+@import "../helpers/respond-to";
 
 @mixin spacing-gutter-padding-side {
   padding-left: map-get($spacing-gutters, default) / 2;
