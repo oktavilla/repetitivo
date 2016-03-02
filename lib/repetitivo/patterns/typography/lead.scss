@@ -1,7 +1,7 @@
 @import "../../config/typography/lead";
 
 @import "../../helpers/exports";
-@import "../../helpers/util-mixins";
+@import "../../helpers/styles-from-map";
 
 @include exports("typography/lead") {
   %lead-font {

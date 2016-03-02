@@ -2,7 +2,7 @@
 
 @import "../../helpers/exports";
 @import "../../helpers/respond-to";
-@import "../../helpers/util-mixins";
+@import "../../helpers/styles-from-map";
 
 @include exports("typography/metric-scale-sizes") {
   @each $metric-scale-size in $metric-scale-sizes {

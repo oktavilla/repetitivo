@@ -2,7 +2,7 @@
 @import "../../config/typography/meta";
 
 @import "../../helpers/exports";
-@import "../../helpers/util-mixins";
+@import "../../helpers/styles-from-map";
 
 @include exports("typography/meta") {
   %meta-font {
