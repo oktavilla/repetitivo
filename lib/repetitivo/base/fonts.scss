@@ -1,6 +1,7 @@
 @import "../config/fonts";
 
 @import "../functions/last";
+@import "../functions/str-split";
 
 @each $font in $fonts {
   $font: nth($font, 1);
