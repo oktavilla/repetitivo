@@ -1,0 +1,12 @@
+@import "./default-scale-factors";
+
+@import "../../helpers/util-functions";
+
+$meta-font-family: "Arial", sans-serif !default;
+$meta-font-size: 14px !default;
+
+$meta-scale-factors: $default-scale-factors !default;
+$meta-font-size-scale: (
+  xs: (font-size: modular-scale(1, $meta-font-size, map-get($meta-scale-factors, xs))),
+  m:  (font-size: modular-scale(1, $meta-font-size, map-get($meta-scale-factors, m))),
+) !default;

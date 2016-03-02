@@ -1,0 +1,17 @@
+@import "./default-scale-factors";
+
+@import "../../helpers/util-functions";
+
+$lead-font-family: null !default;
+$lead-font-weight: null !default;
+$lead-font-style: null !default;
+
+$lead-scale-factors: $default-scale-factors !default;
+$lead-sizes: (
+  default: (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, default))),
+  xs:      (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, xs))),
+  s:       (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, s))),
+  m:       (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, m))),
+  l:       (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, l))),
+  xl:      (font-size: modular-scale(1, $base-font-size, map-get($lead-scale-factors, xl)))
+);

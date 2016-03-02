@@ -1,0 +1,24 @@
+@import "./default-scale-factors";
+
+$metric-scale-sizes: deca hecto kilo mega giga tera !default;
+$metric-scale-factors: $default-scale-factors !default;
+
+$metric-font-sizes: () !default;
+$default-metric-font-sizes: ();
+
+@for $i from 1 through length($metric-scale-sizes) {
+  $metric-scale-size: nth($metric-scale-sizes, $i);
+
+  $default-metric-font-sizes: map-merge($default-metric-font-sizes, (
+    $metric-scale-size: (
+      default: (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, default))),
+      xs:      (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, xs))),
+      s:       (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, s))),
+      m:       (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, m))),
+      l:       (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, l))),
+      xl:      (font-size: modular-scale($i, $base-font-size, map-get($metric-scale-factors, xl)))
+    )
+  ));
+}
+
+$metric-font-sizes: map-merge($default-metric-font-sizes, $metric-font-sizes);

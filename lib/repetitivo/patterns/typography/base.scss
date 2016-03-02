@@ -1,0 +1,35 @@
+@import "../../config/typography/base";
+
+@import "../../helpers/exports";
+@import "../../helpers/respond-to";
+@import "../../helpers/util-mixins";
+
+@include exports("typography/base") {
+  %base-font {
+    @extend %base-font-size;
+
+    color: $base-font-color;
+
+    font-family: $base-font-family;
+    font-feature-settings: $base-font-feature-settings;
+
+    line-height: $base-line-height;
+
+    text-rendering: $base-text-rendering;
+
+    @if $base-pixel-antialiasing {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+
+  %base-font-size {
+    font-size: $base-font-size;
+
+    @each $breakpoint, $val in $breakpoints {
+      @if map-has-key($base-font-size-scale, $breakpoint) {
+        @include styles-from-map(map-get($base-font-size-scale, $breakpoint), $breakpoint);
+      }
+    }
+  }
+}
