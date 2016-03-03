@@ -1,6 +1,7 @@
 @import "../config/typography/metric-sizes";
 
 @import "../patterns/typography/heading";
+@import "../patterns/typography/metric-font-sizes";
 
 //
 // Component: Heading
@@ -9,7 +10,7 @@ $component-name: "Heading";
 $component-base: ".#{$component-name}";
 
 #{$component-base} {
-  @extend %heading-font;
+  @extend %heading-font !optional;
 
   @each $metric-scale-size in $metric-scale-sizes {
     &--#{$metric-scale-size} {
