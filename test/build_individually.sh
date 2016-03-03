@@ -11,6 +11,7 @@ for file in $(find lib -name "*.scss"); do
     message=$(echo "${result}" | json formatted)
     echo -e "${COLOR_RED}✗ ${file}${COLOR_RESET}"
     echo -e "${message}"
+    echo
     exit 1
   else
     echo -e "${COLOR_GREEN}✔ ${file}${COLOR_RESET}"
