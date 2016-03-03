@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node-sass lib/repetitivo.scss build/repetitivo.css",
     "start": "npm run build -- --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "test/build_individually.sh"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Oktavilla/repetitivo#readme",
   "devDependencies": {
+    "json": "~9.0.3",
     "node-sass": "^3.4.2"
   }
 }
