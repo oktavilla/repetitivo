@@ -8,11 +8,13 @@
 
   @font-face {
     $sources: "";
+    $eot-source: null;
     $files: map-get($font, files);
     font-family: map-get($font, family);
 
     @for $i from 1 through length($files) {
       $file: nth($files, $i);
+      $format: "";
 
       // Use explicit formats if they are defined in the config
       // Use file extension otherwise
@@ -24,7 +26,25 @@
         $format: last(str-split($file, "."));
       }
 
+      @if $format == "eot" {
+        $file: "#{$file}?iefix";
+        $format: "embedded-opentype";
+      } @else if $format == "ttf" {
+        $format: "truetype";
+      } @else if $format == "svg" {
+        $file: "#{$file}#svg";
+      }
+
+      // Add extra source definition for eot
+      @if ($format == "embedded-opentype") {
+        $eot-source: url("#{$file}");
+      }
+
       $sources: "#{$sources}, url(\"#{$file}\") format(\"#{$format}\")";
+    }
+
+    @if $eot-source {
+      src: $eot-source;
     }
 
     src: #{str-slice($sources, 3)}; // Remove leading comma and space
