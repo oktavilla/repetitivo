@@ -26,8 +26,9 @@
   @each $spacing-size in $spacing-sizes {
     $size: nth($spacing-size, 1);
     $size-map: nth($spacing-size, 2);
+    $size-name: to-lower-case($size);
 
-    %spacing-#{to-lower-case($size)} {
+    %spacing-#{$size-name} {
       margin: map-get($size-map, default);
 
       @each $breakpoint, $val in $breakpoints {
@@ -39,7 +40,7 @@
       }
     }
 
-    %spacing-#{to-lower-case($size)}-negative {
+    %spacing-#{$size-name}-negative {
       margin: map-get($size-map, default) * -1;
 
       @each $breakpoint, $val in $breakpoints {
@@ -51,7 +52,7 @@
       }
     }
 
-    %spacing-left-#{to-lower-case($size)} {
+    %spacing-left-#{$size-name} {
       margin-left: map-get($size-map, default);
 
       @each $breakpoint, $val in $breakpoints {
@@ -63,7 +64,7 @@
       }
     }
 
-    %spacing-right-#{to-lower-case($size)} {
+    %spacing-right-#{$size-name} {
       margin-right: map-get($size-map, default);
 
       @each $breakpoint, $val in $breakpoints {
@@ -75,7 +76,7 @@
       }
     }
 
-    %spacing-top-#{to-lower-case($size)} {
+    %spacing-top-#{$size-name} {
       margin-top: map-get($size-map, default);
 
       @each $breakpoint, $val in $breakpoints {
@@ -87,7 +88,7 @@
       }
     }
 
-    %spacing-bottom-#{to-lower-case($size)} {
+    %spacing-bottom-#{$size-name} {
       margin-bottom: map-get($size-map, default);
 
       @each $breakpoint, $val in $breakpoints {
@@ -99,7 +100,7 @@
       }
     }
 
-    %spacing-inner-left-#{to-lower-case($size)} {
+    %spacing-inner-left-#{$size-name} {
       padding-left: map-get($size-map, default);
 
       @each $breakpoint, $val in $breakpoints {
@@ -111,7 +112,7 @@
       }
     }
 
-    %spacing-inner-right-#{to-lower-case($size)} {
+    %spacing-inner-right-#{$size-name} {
       padding-right: map-get($size-map, default);
 
       @each $breakpoint, $val in $breakpoints {
@@ -123,7 +124,7 @@
       }
     }
 
-    %spacing-inner-top-#{to-lower-case($size)} {
+    %spacing-inner-top-#{$size-name} {
       padding-top: map-get($size-map, default);
 
       @each $breakpoint, $val in $breakpoints {
@@ -135,7 +136,7 @@
       }
     }
 
-    %spacing-inner-bottom-#{to-lower-case($size)} {
+    %spacing-inner-bottom-#{$size-name} {
       padding-bottom: map-get($size-map, default);
 
       @each $breakpoint, $val in $breakpoints {
