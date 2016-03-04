@@ -1,3 +1,5 @@
+@import "../../functions/map-merge-deep";
+
 @import "./base";
 @import "./default-scale-factors";
 
@@ -22,4 +24,4 @@ $default-metric-font-sizes: ();
   ));
 }
 
-$metric-font-sizes: map-merge($default-metric-font-sizes, $metric-font-sizes);
+$metric-font-sizes: map-merge-deep($default-metric-font-sizes, $metric-font-sizes);
