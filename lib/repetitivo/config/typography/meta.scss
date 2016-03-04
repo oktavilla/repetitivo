@@ -2,8 +2,8 @@
 
 @import "../../functions/modular-scale";
 
-$meta-font-family: "Arial", sans-serif !default;
-$meta-font-size: 14px !default;
+$meta-font-family: null !default;
+$meta-font-size: round($base-font-size / 1.3) !default;
 $meta-font-style: null !default;
 $meta-font-weight: null !default;
 
