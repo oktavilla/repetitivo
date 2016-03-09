@@ -9,6 +9,10 @@
 @import "./spacing";
 
 @mixin grid-item($columns-and-context, $breakpoint: null) {
+  $columns: null;
+  $context: null;
+  $columns-modifier: null;
+
   @if type-of($columns-and-context) == number {
     $columns: $columns-and-context;
     $context: null;
