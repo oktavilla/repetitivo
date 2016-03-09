@@ -1,35 +1,32 @@
 @import "../../config/typography/base";
 
-@import "../../helpers/exports";
 @import "../../helpers/respond-to";
 @import "../../helpers/styles-from-map";
 
-@include exports("typography/base") {
-  %base-font {
-    @extend %base-font-size;
+@mixin base-font {
+  @include base-font-size;
 
-    color: $base-font-color;
+  color: $base-font-color;
 
-    font-family: $base-font-family;
-    font-feature-settings: $base-font-feature-settings;
+  font-family: $base-font-family;
+  font-feature-settings: $base-font-feature-settings;
 
-    line-height: $base-line-height;
+  line-height: $base-line-height;
 
-    text-rendering: $base-text-rendering;
+  text-rendering: $base-text-rendering;
 
-    @if $base-pixel-antialiasing {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  @if $base-pixel-antialiasing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+}
 
-  %base-font-size {
-    font-size: $base-font-size;
+@mixin base-font-size {
+  font-size: $base-font-size;
 
-    @each $breakpoint, $val in $breakpoints {
-      @if map-has-key($base-font-size-scale, $breakpoint) {
-        @include styles-from-map(map-get($base-font-size-scale, $breakpoint), $breakpoint);
-      }
+  @each $breakpoint, $val in $breakpoints {
+    @if map-has-key($base-font-size-scale, $breakpoint) {
+      @include styles-from-map(map-get($base-font-size-scale, $breakpoint), $breakpoint);
     }
   }
 }
