@@ -15,6 +15,12 @@ $component-base: ".#{$component-name}";
     @include grid-container--padded;
   }
 
+  // Variant: Compensate Padded
+  // ---------------------------------------------------------------------------
+  &--compensatePadded {
+    @include grid-container--compensate-padded;
+  }
+
   // Variant: Center
   // ---------------------------------------------------------------------------
   &--center {

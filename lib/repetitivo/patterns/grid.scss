@@ -48,6 +48,10 @@
   }
 }
 
+@mixin grid-container--compensate-padded {
+  @include spacing-compensate-gutter-padding-side;
+}
+
 @mixin grid-container--center {
   justify-content: center;
 }
