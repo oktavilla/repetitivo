@@ -18,6 +18,30 @@
   }
 }
 
+@mixin spacing-gutter-padding-top {
+  padding-top: map-get($spacing-gutters, default) / 2;
+
+  @each $breakpoint, $val in $breakpoints {
+    @if map-has-key($spacing-gutters, $breakpoint) {
+      @include respond-to($breakpoint) {
+        padding-top: map-get($spacing-gutters, $breakpoint) / 2;
+      }
+    }
+  }
+}
+
+@mixin spacing-gutter-padding-bottom {
+  padding-bottom: map-get($spacing-gutters, default) / 2;
+
+  @each $breakpoint, $val in $breakpoints {
+    @if map-has-key($spacing-gutters, $breakpoint) {
+      @include respond-to($breakpoint) {
+        padding-bottom: map-get($spacing-gutters, $breakpoint) / 2;
+      }
+    }
+  }
+}
+
 @mixin spacing-compensate-gutter-padding-side {
   margin-left: map-get($spacing-gutters, default) / -2;
   margin-right: map-get($spacing-gutters, default) / -2;
