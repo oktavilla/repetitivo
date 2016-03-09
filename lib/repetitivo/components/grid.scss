@@ -7,29 +7,29 @@ $component-name: "Grid";
 $component-base: ".#{$component-name}";
 
 #{$component-base} {
-  @extend %grid-container;
+  @include grid-container;
 
   // Variant: Padded
   // ---------------------------------------------------------------------------
   &--padded {
-    @extend %grid-container--padded;
+    @include grid-container--padded;
   }
 
   // Variant: Center
   // ---------------------------------------------------------------------------
   &--center {
-    @extend %grid-container--center;
+    @include grid-container--center;
   }
 
   // Element: Item
   // ---------------------------------------------------------------------------
   &-item {
-    @extend %grid-item;
+    @include grid-item-base;
 
     // Variant: Padded
     // -------------------------------------------------------------------------
     &--padded {
-      @extend %grid-item--padded;
+      @include grid-item--padded;
     }
   }
 }

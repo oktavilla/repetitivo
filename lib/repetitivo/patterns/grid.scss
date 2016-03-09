@@ -3,7 +3,6 @@
 
 @import "../functions/grid-column-width";
 
-@import "../helpers/exports";
 @import "../helpers/respond-to";
 
 @import "./spacing";
@@ -38,27 +37,25 @@
   }
 }
 
-@include exports("grid") {
-  %grid-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
+@mixin grid-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  %grid-container--padded {
-    .Grid-item {
-      @extend %grid-item--padded;
-    }
+@mixin grid-container--padded {
+  .Grid-item {
+    @include grid-item--padded;
   }
+}
 
-  %grid-container--center {
-    justify-content: center;
-  }
+@mixin grid-container--center {
+  justify-content: center;
+}
 
-  %grid-item {
-    width: 100%;
-  }
+@mixin grid-item-base {
+  width: 100%;
+}
 
-  %grid-item--padded {
-    @extend %spacing-gutter-padding-side;
-  }
+@mixin grid-item--padded {
+  @include spacing-gutter-padding-side;
 }
