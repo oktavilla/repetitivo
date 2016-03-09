@@ -15,7 +15,7 @@
 
   @if type-of($columns-and-context) == number {
     $columns: $columns-and-context;
-    $context: null;
+    $context: $grid-columns;
     $columns-modifier: "--#{$columns}";
   } @else {
     $columns: nth($columns-and-context, 1);
@@ -23,7 +23,7 @@
     $columns-modifier: "--#{$columns}-of-#{$context}";
   }
 
-  $column-width: grid-column-width($columns, if($context, $context, $grid-columns));
+  $column-width: grid-column-width($columns, $context);
 
   @if $breakpoint {
     @include respond-to($breakpoint) {
