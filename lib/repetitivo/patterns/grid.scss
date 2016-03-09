@@ -40,7 +40,8 @@
 
 @include exports("grid") {
   %grid-container {
-    font-size: 0;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   %grid-container--padded {
@@ -50,18 +51,11 @@
   }
 
   %grid-container--center {
-    text-align: center;
+    justify-content: center;
   }
 
   %grid-item {
-    @extend %base-font-size;
-
-    display: inline-block;
-
     width: 100%;
-
-    vertical-align: top;
-    text-align: left;
   }
 
   %grid-item--padded {
