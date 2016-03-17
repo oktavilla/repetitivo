@@ -1,0 +1,14 @@
+@import "../config/breakpoints";
+@import "../helpers/respond-to";
+
+@mixin repetitivo-generate-sizes($prop, $sizes, $breakpoints: $repetitivo-breakpoints) {
+  @each $breakpoint, $size in $sizes {
+    @if map-has-key($breakpoints, $breakpoint) {
+      @include respond-to($breakpoint) {
+        #{$prop}: $size;
+      }
+    } @else {
+      #{$prop}: $size;
+    }
+  }
+}
