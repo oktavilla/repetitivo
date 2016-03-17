@@ -1,6 +1,6 @@
 @import "./respond-to";
 
-// Returns base to the exponent power.
+// Applies CSS properties and values based on the keys/values of a Sass map
 // @param {Map} $map The map of styles to render
 // @param {Unquoted string} $breakpoint Optional: render within respond-to breakpoint.
 // @return {Void}

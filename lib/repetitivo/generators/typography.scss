@@ -1,45 +1,19 @@
 @import "../helpers/respond-to";
-@import "./sizes";
+@import "../helpers/styles-from-breakpoint-map";
 
-@mixin _include-style-size($val) {
-  @include repetitivo-generate-sizes(font-size, $val);
-}
+@import "../functions/group-styles-by-breakpoint";
 
-@mixin _include-style-family($val) {
-  font-family: $val;
-}
+@mixin repetitivo-generate-typography($size: null, $family: null, $color: null, $feature-settings: null, $line-height: null, $pixel-antialiasing: null, $breakpoints: $repetitivo-breakpoints) {
+  $styles: (font-size: $size, font-family: $family, color: $color, font-feature-settings: $feature-settings, line-height: $line-height);
 
-@mixin _include-style-color($val) {
-  color: $val;
-}
-
-@mixin _include-style-feature-settings($val) {
-  font-feature-settings: $val;
-}
-
-@mixin _include-style-line-height($val) {
-  line-height: $val;
-}
-
-@mixin _include-style-pixel-antialiasing($val) {
-  @if $val {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  @if $pixel-antialiasing {
+    $styles: map-merge($styles, (
+      -webkit-font-smoothing: antialiased,
+      -moz-osx-font-smoothing: grayscale
+    ));
   }
-}
 
-@mixin _include-style($key, $val) {
-  // Until there is variable interpo    lation in includes
-  @if      $key == size                       { @include _include-style-size($val); }
-  @else if $key == family                     { @include _include-style-family($val); }
-  @else if $key == color                      { @include _include-style-color($val); }
-  @else if $key == feature-settings           { @include _include-style-feature-settings($val); }
-  @else if $key == line-height                { @include _include-style-line-height($val); }
-  @else if $key == pixel-antialiasing         { @include _include-style-pixel-antialiasing($val); }
-}
+  $breakpoint-styles: group-styles-by-breakpoint($styles);
 
-@mixin repetitivo-generate-typography($styles) {
-  @each $key, $val in $styles {
-    @include _include-style($key, $val);
-  }
+  @include styles-from-breakpoint-map($breakpoint-styles, $breakpoints);
 }
