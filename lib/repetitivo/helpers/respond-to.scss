@@ -5,8 +5,8 @@
 @mixin respond-to($point, $max: null, $type: auto, $value: width, $media: screen) {
   $min: null;
 
-  $is-in-map: map-has-key($breakpoints, $point);
-  $breakpoint: map-get($breakpoints, $point);
+  $is-in-map: map-has-key($repetitivo-breakpoints, $point);
+  $breakpoint: map-get($repetitivo-breakpoints, $point);
 
   @if $is-in-map == true {
     $min: map-get($breakpoint, "min");
