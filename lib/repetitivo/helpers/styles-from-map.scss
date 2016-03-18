@@ -1,29 +1,13 @@
-@import "./respond-to";
+@import "../functions/group-styles-by-breakpoint";
 
-// Applies CSS properties and values based on the keys/values of a Sass map
-// @param {Map} $map The map of styles to render
-// @param {Unquoted string} $breakpoint Optional: render within respond-to breakpoint.
-// @return {Void}
-// @example
-//   @include styles-from-map((font-size: 1234px, line-height: 1)
-//   =>
-//   font-size: 1234px;
-//   line-height: 1;
-//
-//   @include styles-from-map((font-size: 1234px, line-height: 1, s)
-//   =>
-//   @include respond-to(s) {
-//     font-size: 1234px;
-//     line-height: 1;
-//   }
-@mixin styles-from-map($map, $breakpoint: null) {
-  @each $prop, $val in $map {
-    @if $breakpoint {
-      @include respond-to($breakpoint) {
-        #{$prop}: #{$val};
-      }
-    } @else {
-      #{$prop}: #{$val};
-    }
+@import "./apply-styles";
+@import "./styles-from-breakpoint-map";
+
+@mixin styles-from-map($map, $breakpoints: $repetitivo-breakpoints) {
+  @if not map-has-key($map, "default") {
+    $map: group-styles-by-breakpoint($map);
   }
+
+  @include styles-from-breakpoint-map($map, $breakpoints);
 }
+

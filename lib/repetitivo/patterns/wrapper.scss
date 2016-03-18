@@ -1,13 +1,30 @@
-@import "../helpers/exports";
+@import "../config/wrapper";
 
-@include exports("wrapper") {
-  %wrapper {
-    max-width: $wrapper-max-width + ($wrapper-spacing * 2);
+@import "../functions/map-normalize";
 
-    margin-left: auto;
-    margin-right: auto;
+@import "../helpers/styles-from-map";
 
-    padding-left: $wrapper-spacing;
-    padding-right: $wrapper-spacing;
+@mixin wrapper($wrapper-max-width: $repetitivo-wrapper-max-width, $wrapper-spacing: $repetitivo-wrapper-spacing) {
+  $max-width: map-normalize($wrapper-max-width);
+  $wrapper-spacing: map-normalize($wrapper-spacing);
+
+  $calculated-max-width: ();
+  $previous-wrapper-spacing: map-get($wrapper-spacing, default);
+
+  @each $key, $val in $max-width {
+    @if map-has-key($wrapper-spacing, $key) {
+      $previous-wrapper-spacing: map-get($wrapper-spacing, $key);
+    }
+
+    $calculated-max-width: map-merge($calculated-max-width, (#{$key}: #{$val + ($previous-wrapper-spacing * 2)}));
   }
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @include styles-from-map((
+    max-width: $calculated-max-width,
+    padding-left: $wrapper-spacing,
+    padding-right: $wrapper-spacing
+  ));
 }

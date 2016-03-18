@@ -1,7 +1,7 @@
 @import "../config/breakpoints";
 
+@import "./apply-styles";
 @import "./respond-to";
-@import "./styles-from-map";
 
 // Applies CSS properties and values per breakpoint, from a Sass map
 // @param {map} $map
@@ -30,9 +30,11 @@
 @mixin styles-from-breakpoint-map($map, $breakpoints: $repetitivo-breakpoints) {
   @each $breakpoint, $styles in $map {
     @if $breakpoint == "default" {
-      @include styles-from-map($styles);
+      @include apply-styles($styles);
     } @else {
-      @include styles-from-map($styles, $breakpoint);
+      @include respond-to($breakpoint, $breakpoints: $breakpoints) {
+        @include apply-styles($styles);
+      }
     }
   };
 }

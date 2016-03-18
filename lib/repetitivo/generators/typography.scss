@@ -1,10 +1,28 @@
 @import "../helpers/respond-to";
-@import "../helpers/styles-from-breakpoint-map";
+@import "../helpers/styles-from-map";
 
 @import "../functions/group-styles-by-breakpoint";
 
-@mixin repetitivo-generate-typography($size: null, $family: null, $color: null, $feature-settings: null, $line-height: null, $pixel-antialiasing: null, $breakpoints: $repetitivo-breakpoints) {
-  $styles: (font-size: $size, font-family: $family, color: $color, font-feature-settings: $feature-settings, line-height: $line-height);
+@mixin repetitivo-generate-typography(
+  $family: null,
+  $size: null,
+  $weight: null,
+  $style: null,
+  $color: null,
+  $feature-settings: null,
+  $line-height: null,
+  $pixel-antialiasing: null,
+  $breakpoints: $repetitivo-breakpoints
+) {
+  $styles: (
+    font-family: $family,
+    font-size: $size,
+    font-weight: $weight,
+    font-style: $style,
+    color: $color,
+    font-feature-settings: $feature-settings,
+    line-height: $line-height
+  );
 
   @if $pixel-antialiasing {
     $styles: map-merge($styles, (
@@ -13,7 +31,5 @@
     ));
   }
 
-  $breakpoint-styles: group-styles-by-breakpoint($styles);
-
-  @include styles-from-breakpoint-map($breakpoint-styles, $breakpoints);
+  @include styles-from-map($styles, $breakpoints);
 }

@@ -1,7 +1,7 @@
 @import "../functions/last";
 @import "../functions/str-split";
 
-@mixin repetitivo-genereate-font-faces($fonts) {
+@mixin repetitivo-generate-font-faces($fonts: $repetitivo-fonts) {
   $fonts: zip($fonts);
 
   @each $font in $fonts {
