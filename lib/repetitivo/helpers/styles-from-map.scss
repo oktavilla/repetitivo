@@ -1,15 +1,20 @@
 @import "../functions/group-styles-by-breakpoint";
+@import "../functions/map-filter";
 
 @import "./apply-styles";
 @import "./styles-from-breakpoint-map";
 
-@mixin styles-from-map($map, $breakpoints: $repetitivo-breakpoints, $overrides: null) {
+@mixin styles-from-map($map, $breakpoints: $repetitivo-breakpoints, $overrides: null, $filter: null) {
   @if not map-has-key($map, "default") {
     $map: group-styles-by-breakpoint($map);
   }
 
   @if $overrides {
     $map: map-merge($map, $overrides);
+  }
+
+  @if $filter {
+    $map: map-filter($map, $filter);
   }
 
   @include styles-from-breakpoint-map($map, $breakpoints);
