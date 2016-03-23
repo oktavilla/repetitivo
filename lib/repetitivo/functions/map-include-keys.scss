@@ -1,0 +1,15 @@
+// Returns a map that only includes keys from key list
+// @param {Map} $map to filter
+// @param {List} $keys List of keys to keep
+// @return {Map}
+// @example
+//   map-include-keys((s: 1, m: 2, l: 3), s m) => (s: 1, m: 2)
+@function map-include-keys($map, $keys) {
+  @each $key, $val in $map {
+    @if not index($keys, $key) {
+      $map: map-remove($map, $key);
+    }
+  }
+
+  @return $map;
+}
