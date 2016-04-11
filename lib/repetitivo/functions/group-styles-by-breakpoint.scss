@@ -1,0 +1,45 @@
+@import "./map-merge-deep";
+
+// Combines several maps for more effective use with
+// the styles-from-breakpoint-map mixin
+// @param {Map}
+//
+// @example
+//   group-styles-by-breakpoint((
+//     font-size: (
+//       default: 18px,
+//       l: 26px
+//     ),
+//     line-height: (
+//       default: 1.5,
+//       l: 1.3
+//     ),
+//     color: black
+//   ));
+//   =>
+//   (
+//     default: (
+//       font-size: 18px,
+//       line-height: 1.5,
+//       color: black
+//     ),
+//     l: (
+//       font-size: 26px,
+//       line-height: 1.3
+//     )
+//   )
+@function group-styles-by-breakpoint($map) {
+  $result: (default: ());
+
+  @each $property, $var in $map {
+    @if type-of($var) == "map" {
+      @each $breakpoint, $value in $var {
+        $result: map-merge-deep($result, (#{$breakpoint}: (#{$property}: $value)));
+      }
+    } @else if type-of($var) != "null" {
+      $result: map-merge-deep($result, (default: (#{$property}: $var)));
+    }
+  }
+
+  @return $result;
+}

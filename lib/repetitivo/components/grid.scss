@@ -12,7 +12,9 @@ $component-base: ".#{$component-name}";
   // Variant: Padded
   // ---------------------------------------------------------------------------
   &--padded {
-    @include grid-container--padded;
+    #{$component-base}-item {
+      @include grid-item--padded;
+    }
   }
 
   // Variant: Compensate Padded
@@ -30,7 +32,7 @@ $component-base: ".#{$component-name}";
   // Element: Item
   // ---------------------------------------------------------------------------
   &-item {
-    @include grid-item-base;
+    @include grid-item;
 
     // Variant: Padded
     // -------------------------------------------------------------------------

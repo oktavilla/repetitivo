@@ -1,0 +1,20 @@
+// Normalizes a variable's value so it always looks like a map of breakpoints with values for each breakpoint
+// @param {} $value
+//
+// @example
+//   $a: map-normalize((default: 10px, l: 20px));
+//   $b: map-normalize(10px);
+//   =>
+//   $a: (default: 10px, l: 20px);
+//   $b: (default: 10px);
+@function map-normalize($value) {
+  $result: ();
+
+  @if type-of($value) == map {
+    $result: $value;
+  } @else {
+    $result: (default: $value);
+  }
+
+  @return $result;
+}

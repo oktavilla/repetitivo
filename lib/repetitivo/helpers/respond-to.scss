@@ -2,7 +2,7 @@
 
 @import "../functions/strip-units";
 
-@mixin respond-to($point, $max: null, $type: auto, $value: width, $media: screen) {
+@mixin respond-to($point, $max: null, $type: auto, $value: width, $media: screen, $breakpoints: $repetitivo-breakpoints) {
   $min: null;
 
   $is-in-map: map-has-key($breakpoints, $point);

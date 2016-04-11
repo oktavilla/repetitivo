@@ -1,14 +1,16 @@
+// Base
+// -----------------------------------------------------------------------------
 @import "./repetitivo/base/fonts";
 @import "./repetitivo/base/image";
 @import "./repetitivo/base/layout";
 @import "./repetitivo/base/typography";
 
+// Components
+// -----------------------------------------------------------------------------
 @import "./repetitivo/components/grid";
-@import "./repetitivo/components/heading";
-@import "./repetitivo/components/lead";
-@import "./repetitivo/components/meta";
 @import "./repetitivo/components/wrapper";
 
-@import "./repetitivo/utilities/spacing";
+// Utilities
+// -----------------------------------------------------------------------------
 @import "./repetitivo/utilities/text";
 @import "./repetitivo/utilities/visibility";

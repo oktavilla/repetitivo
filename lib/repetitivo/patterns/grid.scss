@@ -1,40 +1,32 @@
-@import "../config/grid";
-@import "../config/typography/base";
+@import "../config/breakpoints";
+@import "../config/spacing";
 
-@import "../functions/grid-column-width";
+@import "../helpers/styles-from-map";
 
-@import "../helpers/respond-to";
+@function _get-half-gutter($spacing-gutters: $repetitivo-spacing-gutters, $negative: false) {
+  $result: ();
 
-@import "./spacing";
+  @if type-of($spacing-gutters) == map {
+    @each $key, $val in $spacing-gutters {
+      $new-val: $val / 2;
 
-@mixin grid-item($columns-and-context, $breakpoint: null) {
-  $columns: null;
-  $context: null;
-  $columns-modifier: null;
-
-  @if type-of($columns-and-context) == number {
-    $columns: $columns-and-context;
-    $context: $grid-columns;
-    $columns-modifier: "--#{$columns}";
-  } @else {
-    $columns: nth($columns-and-context, 1);
-    $context: nth($columns-and-context, 3);
-    $columns-modifier: "--#{$columns}-of-#{$context}";
-  }
-
-  $column-width: grid-column-width($columns, $context);
-
-  @if $breakpoint {
-    @include respond-to($breakpoint) {
-      .Grid-item-#{$breakpoint}#{$columns-modifier} {
-        width: $column-width;
+      @if $negative {
+        $new-val: -$new-val;
       }
+
+      $result: map-merge($result, (#{$key}: #{$new-val}));
     }
   } @else {
-    .Grid-item#{$columns-modifier} {
-      width: $column-width;
+    $new-val: $val / 2;
+
+    @if $negative {
+      $new-val: -$new-val;
     }
+
+    $result: map-merge($result, (default: #{$new-val}));
   }
+
+  @return $result;
 }
 
 @mixin grid-container {
@@ -42,24 +34,28 @@
   flex-wrap: wrap;
 }
 
-@mixin grid-container--padded {
-  .Grid-item {
-    @include grid-item--padded;
-  }
-}
+@mixin grid-container--compensate-padded($spacing-gutters: $repetitivo-spacing-gutters, $breakpoints: $repetitivo-breakpoints) {
+  $half-spacing-gutters: _get-half-gutter($spacing-gutters, $negative: true);
 
-@mixin grid-container--compensate-padded {
-  @include spacing-compensate-gutter-padding-side;
+  @include styles-from-map((
+    margin-left: $half-spacing-gutters,
+    margin-right: $half-spacing-gutters
+  ), $breakpoints: $breakpoints);
 }
 
 @mixin grid-container--center {
   justify-content: center;
 }
 
-@mixin grid-item-base {
+@mixin grid-item {
   width: 100%;
 }
 
-@mixin grid-item--padded {
-  @include spacing-gutter-padding-side;
+@mixin grid-item--padded($spacing-gutters: $repetitivo-spacing-gutters, $breakpoints: $repetitivo-breakpoints) {
+  $half-spacing-gutters: _get-half-gutter($spacing-gutters);
+
+  @include styles-from-map((
+    padding-left: $half-spacing-gutters,
+    padding-right: $half-spacing-gutters
+  ), $breakpoints: $breakpoints);
 }
