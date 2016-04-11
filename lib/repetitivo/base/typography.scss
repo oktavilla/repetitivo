@@ -13,7 +13,8 @@ textarea {
     $line-height: $repetitivo-base-line-height,
     $feature-settings: $repetitivo-base-font-feature-settings,
     $color: $repetitivo-base-font-color,
-    $pixel-antialiasing: true
+    $pixel-antialiasing: true,
+    $text-rendering: $repetitivo-base-font-text-rendering
   );
 }
 

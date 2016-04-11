@@ -12,6 +12,7 @@
   $feature-settings: null,
   $line-height: null,
   $pixel-antialiasing: null,
+  $text-rendering: null,
   $breakpoints: $repetitivo-breakpoints
 ) {
   $styles: (
@@ -21,7 +22,8 @@
     font-style: $style,
     color: $color,
     font-feature-settings: $feature-settings,
-    line-height: $line-height
+    line-height: $line-height,
+    text-rendering: $text-rendering
   );
 
   @if $pixel-antialiasing {

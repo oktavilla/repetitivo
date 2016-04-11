@@ -9,6 +9,7 @@ $repetitivo-base-font-size: (
   m: 20px
 ) !default;
 $repetitivo-base-font-feature-settings: "kern", "liga", "frac", "pnum", "onum" !default;
+$repetitivo-base-font-text-rendering: optimizeLegibility !default;
 
 $repetitivo-base-line-height: 1.5 !default;
 $repetitivo-base-pixel-antialiasing: false !default;
