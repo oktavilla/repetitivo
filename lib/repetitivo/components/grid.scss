@@ -12,7 +12,7 @@ $component-base: ".#{$component-name}";
   // Variant: Padded
   // ---------------------------------------------------------------------------
   &--padded {
-    #{$component-base}-item {
+    > #{$component-base}-item {
       @include grid-item--padded;
     }
   }
