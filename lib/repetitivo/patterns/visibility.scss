@@ -15,18 +15,22 @@
   overflow: hidden;
 }
 
+@mixin visibility-hidden--reset {
+  position: static;
+
+  width: auto;
+  height: auto;
+
+  margin: 0;
+
+  clip: auto;
+
+  overflow: visible;
+}
+
 @mixin visibility-hidden--focusable {
   &:active,
   &:focus {
-    position: static;
-
-    width: auto;
-    height: auto;
-
-    margin: 0;
-
-    clip: auto;
-
-    overflow: visible;
+    @include visibility-hidden--reset;
   }
 }
