@@ -29,6 +29,12 @@ $component-base: ".#{$component-name}";
     @include grid-container--center;
   }
 
+  // Variant: Center Vertical
+  // ---------------------------------------------------------------------------
+  &--centerVertical {
+    @include grid-container--center-vertical;
+  }
+
   // Element: Item
   // ---------------------------------------------------------------------------
   &-item {

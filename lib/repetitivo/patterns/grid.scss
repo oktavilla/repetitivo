@@ -47,6 +47,10 @@
   justify-content: center;
 }
 
+@mixin grid-container--center-vertical {
+  align-items: center;
+}
+
 @mixin grid-item {
   width: 100%;
 }
