@@ -35,6 +35,12 @@ $component-base: ".#{$component-name}";
     @include grid-container--center-vertical;
   }
 
+  // Variant: Reverse
+  // ---------------------------------------------------------------------------
+  &--reverse {
+    @include grid-container--reverse;
+  }
+
   // Element: Item
   // ---------------------------------------------------------------------------
   &-item {
