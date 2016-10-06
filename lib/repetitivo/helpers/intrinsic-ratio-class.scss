@@ -1,0 +1,15 @@
+@import "../config/naming";
+
+@import "../functions/intrinsic-ratio";
+
+@mixin intrinsic-ratio-class($width, $height, $before: false) {
+  $selector: "#{$repetitivo-modifier-separator}#{$width}x#{$height}";
+
+  @if $before {
+    $selector: "#{$selector}::before";
+  }
+
+  &#{$selector} {
+    padding-top: intrinsic-ratio($width, $height);
+  }
+}
