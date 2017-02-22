@@ -20,7 +20,8 @@
   $result: ();
 
   @each $key, $val in $scale-map {
-    $result: map-merge($result, (#{$key}: #{($multiple * $base-size * $val)}));
+    $calculated-val: $multiple * $base-size * $val;
+    $result: map-merge($result, (#{$key}: $multiple * $base-size * $val));
   }
 
   @return $result;
