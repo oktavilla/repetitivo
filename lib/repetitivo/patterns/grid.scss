@@ -34,13 +34,13 @@
   flex-wrap: wrap;
 }
 
-@mixin grid-container--compensate-padded($spacing-gutters: $repetitivo-spacing-gutters, $breakpoints: $repetitivo-breakpoints) {
+@mixin grid-container--compensate-padded($spacing-gutters: $repetitivo-spacing-gutters, $breakpoints: $repetitivo-breakpoints, $include-breakpoints: null, $exclude-breakpoints: null) {
   $half-spacing-gutters: _get-half-gutter($spacing-gutters, $negative: true);
 
   @include styles-from-map((
     margin-left: $half-spacing-gutters,
     margin-right: $half-spacing-gutters
-  ), $breakpoints: $breakpoints);
+  ), $breakpoints: $breakpoints, $include-breakpoints: $include-breakpoints, $exclude-breakpoints: $exclude-breakpoints);
 }
 
 @mixin grid-container--center {
@@ -59,11 +59,11 @@
   width: 100%;
 }
 
-@mixin grid-item--padded($spacing-gutters: $repetitivo-spacing-gutters, $breakpoints: $repetitivo-breakpoints) {
+@mixin grid-item--padded($spacing-gutters: $repetitivo-spacing-gutters, $breakpoints: $repetitivo-breakpoints, $include-breakpoints: null, $exclude-breakpoints: null) {
   $half-spacing-gutters: _get-half-gutter($spacing-gutters);
 
   @include styles-from-map((
     padding-left: $half-spacing-gutters,
     padding-right: $half-spacing-gutters
-  ), $breakpoints: $breakpoints);
+  ), $breakpoints: $breakpoints, $include-breakpoints: $include-breakpoints, $exclude-breakpoints: $exclude-breakpoints);
 }
