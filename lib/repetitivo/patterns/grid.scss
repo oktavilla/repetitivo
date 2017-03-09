@@ -17,7 +17,7 @@
       $result: map-merge($result, (#{$key}: #{$new-val}));
     }
   } @else {
-    $new-val: $val / 2;
+    $new-val: $spacing-gutters / 2;
 
     @if $negative {
       $new-val: -$new-val;
