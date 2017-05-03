@@ -28,7 +28,11 @@
 //     line-height: 1.3;
 //   }
 @mixin styles-from-breakpoint-map($map, $breakpoints: $repetitivo-breakpoints) {
-  @each $breakpoint, $styles in $map {
+  $breakpoints: map-merge((default: ()), $breakpoints);
+
+  @each $breakpoint in map-keys($breakpoints) {
+    $styles: map-get($map, $breakpoint);
+
     @if $breakpoint == "default" {
       @include apply-styles($styles);
     } @else {
@@ -36,5 +40,5 @@
         @include apply-styles($styles);
       }
     }
-  };
+  }
 }
