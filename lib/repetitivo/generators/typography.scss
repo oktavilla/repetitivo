@@ -11,6 +11,7 @@
   $color: null,
   $feature-settings: null,
   $line-height: null,
+  $letter-spacing: null,
   $pixel-antialiasing: null,
   $text-rendering: null,
   $breakpoints: $repetitivo-breakpoints
@@ -23,6 +24,7 @@
     color: $color,
     font-feature-settings: $feature-settings,
     line-height: $line-height,
+    letter-spacing: $letter-spacing,
     text-rendering: $text-rendering
   );
 
