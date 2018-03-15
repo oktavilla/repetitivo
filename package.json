@@ -21,6 +21,6 @@
   "homepage": "https://github.com/Oktavilla/repetitivo#readme",
   "devDependencies": {
     "json": "~9.0.3",
-    "node-sass": "^3.4.2"
+    "node-sass": "~4.7.2"
   }
 }
