@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node-sass lib/repetitivo.scss build/repetitivo.css",
     "generate:docs": "sassdoc lib/repetitivo",
+    "generate:docs:watch": "nodemon -w lib -e scss -x 'npm run generate:docs'",
     "start": "npm run build -- --watch",
     "test": "test/build_individually.sh"
   },
@@ -23,6 +24,7 @@
   "devDependencies": {
     "json": "~9.0.3",
     "node-sass": "~4.9.0",
+    "nodemon": "^1.17.4",
     "sassdoc": "^2.5.0"
   }
 }
