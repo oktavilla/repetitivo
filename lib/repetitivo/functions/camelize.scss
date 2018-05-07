@@ -1,10 +1,10 @@
 @import "./capitalize";
 
-// Camelize string
-// @param {String} String to camelize
-// @return {String}
-// @example
-//   camelize("hello-world") // HelloWorld
+/// Convert string to UpperCamelCase
+/// @param {string} $string - String to camelize
+/// @return {string}
+/// @example
+///   camelize("hello-world") // HelloWorld
 @function camelize($string) {
   $progress: $string;
   $result: "";

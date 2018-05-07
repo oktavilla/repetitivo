@@ -1,8 +1,8 @@
-// Capitalize string
-// @param {String} String to uppercase first letter in
-// @return {String}
-// @example
-//   capitalize("hello") // Hello
+/// Returns a string with the first character converted to uppercase
+/// @param {string} $string
+/// @return {string}
+/// @example
+///   capitalize("hello") // Hello
 @function capitalize($string) {
   @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
 }

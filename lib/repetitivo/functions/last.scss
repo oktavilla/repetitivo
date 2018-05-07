@@ -1,8 +1,8 @@
-// Returns last item in list
-// @param {List} $list to look in
-// @return {Mixed}
-// @example
-//   last(hello goodbye) // goodbye
+/// Returns last item in list
+/// @param {list} $list - List to look in
+/// @return {mixed}
+/// @example
+///   last(hello goodbye) // goodbye
 @function last($list) {
   @return nth($list, length($list));
 }

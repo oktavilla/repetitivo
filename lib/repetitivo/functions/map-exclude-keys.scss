@@ -1,9 +1,9 @@
-// Returns a map that excludes keys from key list
-// @param {Map} $map to filter
-// @param {List} $keys List of keys to exclude
-// @return {Map}
-// @example
-//   map-exclude-keys((s: 1, m: 2, l: 3), s m) => (l: 3)
+/// Returns a map that excludes keys from key list
+/// @param {map} $map - Map to filter
+/// @param {list} $keys - List of keys to exclude
+/// @return {map}
+/// @example
+///   map-exclude-keys((a: 1, b: 2, c: 3), a b) // (c: 3)
 @function map-exclude-keys($map, $keys) {
   @each $key, $val in $map {
     @if index($keys, $key) {

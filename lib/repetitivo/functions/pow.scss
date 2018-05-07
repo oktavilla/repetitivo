@@ -1,10 +1,10 @@
-// Returns base to the exponent power.
-// @param {Number} $base The base number
-// @param {Number} $exponents The exponent to which to raise base
-// @return {Number}
-// @example
-//   pow(4, 4) // 256
-//   pow(4, -4) // 0.00391
+/// Returns base to the exponent power
+/// @param {number} $base - The base number
+/// @param {number} $exponents - The exponent to which to raise base
+/// @return {number}
+/// @example
+///   pow(4, 4) // 256
+///   pow(4, -4) // 0.00391
 @function pow($base, $exponents) {
   $raised: 1;
 

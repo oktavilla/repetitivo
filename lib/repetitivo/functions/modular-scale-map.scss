@@ -1,21 +1,13 @@
 @import "./modular-scale";
 
-// Transforms a map of breakpoints and scale ratios with the given base size
-// and multiple to a corresponding map with modular scale applied
-// @param {Map} $scale-map
-// @param {Number} $base-size
-// @param {Number} $multiple
-//
-// @example
-// modular-scale-map((
-//   default: 1.1,
-//   l: 1.2
-// ), 10px, 2);
-// =>
-// (
-//   default: 12px,
-//   l: 14px
-// )
+/// Transforms a map of breakpoints and scale ratios with the given base size
+/// and multiple to a corresponding map with modular scale applied
+/// @param {map} $scale-map
+/// @param {number} $base-size
+/// @param {number} $multiple
+///
+/// @example
+///   modular-scale-map((default: 1.1, l: 1.2), 10px, 2) // (default: 12px, l: 14px)
 @function modular-scale-map($scale-map, $base-size, $multiple) {
   $result: ();
 
