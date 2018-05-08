@@ -2,7 +2,6 @@
 @import "../functions/map-exclude-keys";
 @import "../functions/map-include-keys";
 
-@import "./apply-styles";
 @import "./styles-from-breakpoint-map";
 
 @mixin styles-from-map($map, $breakpoints: $repetitivo-breakpoints, $include-breakpoints: null, $exclude-breakpoints: null) {
@@ -20,4 +19,3 @@
 
   @include styles-from-breakpoint-map($map, $breakpoints);
 }
-
