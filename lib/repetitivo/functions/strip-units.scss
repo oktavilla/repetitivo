@@ -1,8 +1,8 @@
-// Strip units from a number
-// @param {Number} $number The number to strip
-// @return {Number}
-// @example
-//   strip-units(4px) // 4
+/// Strip units from a number
+/// @param {number} $number - The number to strip
+/// @return {number}
+/// @example
+///   strip-units(4px) // 4
 @function strip-units($number) {
   @return $number / ($number * 0 + 1);
 }

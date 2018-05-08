@@ -1,11 +1,11 @@
-// Join two maps recursively
-// @param {Map} Map 1
-// @param {Map} Map 2
-// @return {Map}
-// @example
-//   $map1: (foo: (bar: (baz: baz)));
-//   $map2: (foo: (bar: (bam: bam)));
-//   map-merge-deep($map1, $map2); // (foo: (bar: (baz: baz, bam: bam)))
+/// Join two maps recursively
+/// @param {map} - Map 1
+/// @param {map} - Map 2
+/// @return {map}
+/// @example
+///   $map1: (foo: (bar: (baz: baz)));
+///   $map2: (foo: (bar: (bam: bam)));
+///   map-merge-deep($map1, $map2) // (foo: (bar: (baz: baz, bam: bam)))
 @function map-merge-deep($map1, $map2) {
   $out: $map1;
 

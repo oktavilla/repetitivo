@@ -1,9 +1,9 @@
-// Split `$string` into several parts using `$delimiter`.
-// @param {String} $string string to split
-// @param {String} $delimiter string to use as a delimiter to split `$string`
-// @return {List}
-// @example
-//   str-split("hello goodbye", " "); // (hello goodbye)
+/// Split a string into several parts using a delimiter
+/// @param {string} $string - String to split
+/// @param {string} $delimiter - Delimiter string to determine where to make each split
+/// @return {list}
+/// @example
+///   str-split("hello goodbye", " ") // (hello goodbye)
 @function str-split($string, $delimiter) {
   $result: ();
   $running: true;

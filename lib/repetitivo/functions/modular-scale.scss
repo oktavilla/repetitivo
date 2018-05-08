@@ -1,12 +1,12 @@
 @import "./pow";
 
-// Returns base to the exponent power.
-// @param {Number} $multiple The value up the scale
-// @param {Number} $base-size The base to start from
-// @param {Number} $ratio The scale to use
-// @return {Number}
-// @example
-//   modular-scale(2, 16px, 1.414) // 32px
+/// Returns base to the exponent power.
+/// @param {number} $multiple - The value up the scale
+/// @param {number} $base-size - The base to start from
+/// @param {number} $ratio - The scale to use
+/// @return {number}
+/// @example
+///   modular-scale(2, 16px, 1.414) // 32px
 @function modular-scale($multiple, $base-size, $ratio) {
   @return round($base-size * pow($ratio, $multiple));
 }

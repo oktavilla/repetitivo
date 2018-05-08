@@ -1,11 +1,11 @@
-// Blend color: multiply
-// @param {String} $base-color
-// @param {String} $mix-color
-// @param {String} $weight
-// @return {String}
-// @example
-//   blend-multiply(#ff0, #0f0) // ##ffcc00
-//   blend-multiply(#ff0, #0f0, 50%) // #ffe600
+/// Mix two colors with multiply blend mode
+/// @param {string} $base-color
+/// @param {string} $mix-color
+/// @param {string} $weight [100%]
+/// @return {color}
+/// @example
+///   blend-multiply(#ff0, #0f0) // #ffcc00
+///   blend-multiply(#ff0, #0f0, 50%) // #ffe600
 @function blend-multiply($base-color, $mix-color, $weight: 100%) {
   $red: floor(red($base-color) * red($mix-color) / 255);
   $green: floor(green($base-color) * green($mix-color) / 255);
