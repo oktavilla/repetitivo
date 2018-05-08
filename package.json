@@ -8,7 +8,9 @@
     "generate:docs": "sassdoc lib/repetitivo",
     "generate:docs:watch": "nodemon -w lib -e scss -x 'npm run generate:docs'",
     "start": "npm run build -- --watch",
-    "test": "test/build_individually.sh"
+    "test": "npm run test:build && npm run test:unit",
+    "test:build": "test/build_individually.sh",
+    "test:unit": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -23,8 +25,10 @@
   "homepage": "https://github.com/Oktavilla/repetitivo#readme",
   "devDependencies": {
     "json": "~9.0.3",
+    "mocha": "^5.1.1",
     "node-sass": "~4.9.0",
     "nodemon": "^1.17.4",
+    "sass-true": "^4.0.0",
     "sassdoc": "^2.5.0"
   }
 }
