@@ -1,0 +1,7 @@
+@import "../../lib/repetitivo/functions/grid-column-width";
+
+@include describe("grid-column-width") {
+  @include it("should return width percentage from columns and column context") {
+    @include assert-equal(grid-column-width(6, 12), 50%);
+  }
+}
