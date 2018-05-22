@@ -1,0 +1,29 @@
+@import "../../lib/repetitivo/functions/group-styles-by-breakpoint";
+
+@include describe("group-styles-by-breakpoint") {
+  @include it("should group styles by breakpoint instead of property") {
+    $input: (
+      font-size: (
+        default: 18px,
+        l: 26px
+      ),
+      line-height: (
+        default: 1.5,
+        l: 1.3
+      ),
+      color: black
+    );
+    $output: (
+      default: (
+        font-size: 18px,
+        line-height: 1.5,
+        color: black
+      ),
+      l: (
+        font-size: 26px,
+        line-height: 1.3
+      )
+    );
+    @include assert-equal(group-styles-by-breakpoint($input), $output);
+  }
+}
