@@ -1,0 +1,7 @@
+@import "../../lib/repetitivo/functions/intrinsic-ratio";
+
+@include describe("intrinsic-ratio") {
+  @include it("should return a percentage ratio from width and height") {
+    @include assert-equal(intrinsic-ratio(16, 9), 56.25%);
+  }
+}
