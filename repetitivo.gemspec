@@ -6,7 +6,6 @@ require "ostruct"
 pkg = OpenStruct.new(JSON.parse(IO.read("package.json")))
 
 Gem::Specification.new do |s|
-  s.add_runtime_dependency "sass", "~> 3.4"
   s.authors = pkg.author
   s.summary = pkg.description
   s.files = `git ls-files`.split("\n")
