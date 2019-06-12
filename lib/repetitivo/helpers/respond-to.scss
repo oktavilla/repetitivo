@@ -3,50 +3,54 @@
 @import "../functions/strip-units";
 
 @mixin respond-to($point, $max: null, $type: auto, $value: width, $media: screen, $breakpoints: $repetitivo-breakpoints) {
-  $min: null;
-
-  $is-in-map: map-has-key($breakpoints, $point);
-  $breakpoint: map-get($breakpoints, $point);
-
-  @if $is-in-map == true {
-    $min: map-get($breakpoint, "min");
-    $max: map-get($breakpoint, "max");
-  }
-
-  @if $is-in-map != true {
-    @if not $min {
-      $min: $point;
-    }
-    @if not $max {
-      $max: $point;
-    }
-  }
-
-  @if $type == auto and $min {
-    $type: min;
-  } @else if $type == auto and $max {
-    $type: max;
-  }
-
-  @if $min {
-    $min: (strip-units($min) / 16) * 1em;
-  }
-
-  @if $max {
-    $max: (strip-units($max) / 16) * 1em;
-  }
-
-  $breakpointString: false;
-
-  @if $type == max and $max {
-    $breakpointString: "#{$media} and (max-#{$value}: #{$max})";
-  } @else if $type == min and $min {
-    $breakpointString: "#{$media} and (min-#{$value}: #{$min})";
-  } @else if ($type == between or $type == both) and $min and $max {
-    $breakpointString: "#{$media} and (min-#{$value}: #{$min}) and (max-#{$value}: #{$max})";
-  }
-
-  @media #{$breakpointString} {
+  @if ($point == "default") {
     @content;
+  } @else {
+    $min: null;
+
+    $is-in-map: map-has-key($breakpoints, $point);
+    $breakpoint: map-get($breakpoints, $point);
+
+    @if $is-in-map == true {
+      $min: map-get($breakpoint, "min");
+      $max: map-get($breakpoint, "max");
+    }
+
+    @if $is-in-map != true {
+      @if not $min {
+        $min: $point;
+      }
+      @if not $max {
+        $max: $point;
+      }
+    }
+
+    @if $type == auto and $min {
+      $type: min;
+    } @else if $type == auto and $max {
+      $type: max;
+    }
+
+    @if $min {
+      $min: (strip-units($min) / 16) * 1em;
+    }
+
+    @if $max {
+      $max: (strip-units($max) / 16) * 1em;
+    }
+
+    $breakpointString: false;
+
+    @if $type == max and $max {
+      $breakpointString: "#{$media} and (max-#{$value}: #{$max})";
+    } @else if $type == min and $min {
+      $breakpointString: "#{$media} and (min-#{$value}: #{$min})";
+    } @else if ($type == between or $type == both) and $min and $max {
+      $breakpointString: "#{$media} and (min-#{$value}: #{$min}) and (max-#{$value}: #{$max})";
+    }
+
+    @media #{$breakpointString} {
+      @content;
+    }
   }
 }
