@@ -4,8 +4,8 @@
 /// @param {string} $weight [100%]
 /// @return {color}
 /// @example
-///   blend-multiply(#ff0, #0f0) // #ffcc00
-///   blend-multiply(#ff0, #0f0, 50%) // #ffe600
+///   blend-multiply(#f9d, #0f0) // #090
+///   blend-multiply(#f9d, #0f0, 50%) // #80996f
 @function blend-multiply($base-color, $mix-color, $weight: 100%) {
   $red: floor(red($base-color) * red($mix-color) / 255);
   $green: floor(green($base-color) * green($mix-color) / 255);

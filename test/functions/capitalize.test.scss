@@ -1,0 +1,11 @@
+@import "../../lib/repetitivo/functions/capitalize";
+
+@include describe("capitalize") {
+  @include it("should uppercase first letter") {
+    @include assert-equal(capitalize("hello world"), "Hello world");
+  }
+
+  @include it("should handle an empty string") {
+    @include assert-equal(capitalize(""), "");
+  }
+}

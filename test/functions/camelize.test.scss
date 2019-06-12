@@ -1,0 +1,15 @@
+@import "../../lib/repetitivo/functions/camelize";
+
+@include describe("camelize") {
+  @include it("should uppercase first letter") {
+    @include assert-equal(camelize("hello-world"), "HelloWorld");
+  }
+
+  @include it("should captialize letter after space, dash and underscore") {
+    @include assert-equal(camelize("h-e_l l-o!"), "HELLO!");
+  }
+
+  @include it("should handle an empty string") {
+    @include assert-equal(camelize(""), "");
+  }
+}

@@ -1,0 +1,7 @@
+@import "../../lib/repetitivo/functions/last";
+
+@include describe("last") {
+  @include it("should return last element in list") {
+    @include assert-equal(last(hello goodbye), goodbye);
+  }
+}

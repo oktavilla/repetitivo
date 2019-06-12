@@ -1,0 +1,11 @@
+@import "../../lib/repetitivo/functions/blend-multiply";
+
+@include describe("blend-multiply") {
+  @include it("should blend foreground with background") {
+    @include assert-equal(blend-multiply(#f9d, #0f0), #090);
+  }
+
+  @include it("should take weight (amount of color of foreground) into account") {
+    @include assert-equal(blend-multiply(#f9d, #0f0, 50%), #80996f);
+  }
+}

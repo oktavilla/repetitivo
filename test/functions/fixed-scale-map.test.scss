@@ -1,0 +1,7 @@
+@import "../../lib/repetitivo/functions/fixed-scale-map";
+
+@include describe("fixed-scale-map") {
+  @include it("should multiply map values with parameters") {
+    @include assert-equal(fixed-scale-map((default: 1.1, l: 1.2), 10px, 2), (default: 22px, l: 24px));
+  }
+}
