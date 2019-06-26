@@ -4,7 +4,9 @@ COLOR_RESET="\033[0m"
 COLOR_RED="\033[31m"
 COLOR_GREEN="\033[32m"
 
-for file in $(find lib -name "*.scss"); do
+DIR="${1:-lib}"
+
+for file in $(find "${DIR}" -name "*.scss"); do
   result=$(node-sass ${file} 2>&1 > /dev/null)
 
   if [ "$result" ]; then
