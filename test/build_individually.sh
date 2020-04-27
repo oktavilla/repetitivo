@@ -6,16 +6,44 @@ COLOR_GREEN="\033[32m"
 
 DIR="${1:-lib}"
 
-for file in $(find "${DIR}" -name "*.scss"); do
+error () {
+  local file="${1}"
+  local result="${2}"
+  local message=$(echo "${result}" | json formatted)
+
+  echo -e "${COLOR_RED}✗ ${file}${COLOR_RESET}"
+  echo -e "${message}"
+  echo
+  exit 1
+}
+
+success () {
+  local file="${1}"
+
+  echo -e "${COLOR_GREEN}✔ ${file}${COLOR_RESET}"
+}
+
+echo "Test using node-sass"
+
+for file in $(find "${DIR}" -name "*.scss" -not -name "_index.scss"); do
   result=$(node-sass ${file} 2>&1 > /dev/null)
 
   if [ "$result" ]; then
-    message=$(echo "${result}" | json formatted)
-    echo -e "${COLOR_RED}✗ ${file}${COLOR_RESET}"
-    echo -e "${message}"
-    echo
-    exit 1
+    error "${file}" "${result}"
   else
-    echo -e "${COLOR_GREEN}✔ ${file}${COLOR_RESET}"
+    success "${file}"
+  fi
+done
+
+echo
+echo "Test using sass (Dart)"
+
+for file in $(find "${DIR}" -name "*.scss" -not -name "_index.scss"); do
+  result=$(sass ${file} 2>&1 > /dev/null)
+
+  if [ "$result" ]; then
+    error "${file}" "${result}"
+  else
+    success "${file}"
   fi
 done
