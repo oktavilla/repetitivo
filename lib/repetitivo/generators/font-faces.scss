@@ -57,6 +57,10 @@
       @if map-has-key($font, style) {
         font-style: map-get($font, style);
       }
+
+      @if map-has-key($font, display) {
+        font-display: map-get($font, display);
+      }
     }
   }
 }
