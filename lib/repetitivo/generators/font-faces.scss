@@ -28,7 +28,7 @@
         }
 
         @if $format == "eot" {
-          $file: "#{$file}?iefix";
+          $file: "#{$file}?#iefix";
           $format: "embedded-opentype";
         } @else if $format == "ttf" {
           $format: "truetype";
