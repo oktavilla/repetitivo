@@ -1,8 +1,10 @@
+@import "../internal/div";
+
 /// Strip units from a number
 /// @param {number} $number - The number to strip
 /// @return {number}
 /// @example
 ///   strip-units(4px) // 4
 @function strip-units($number) {
-  @return $number / ($number * 0 + 1);
+  @return div($number, ($number * 0 + 1));
 }

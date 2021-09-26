@@ -1,3 +1,5 @@
+@import "../internal/div";
+
 @import "../config/breakpoints";
 @import "../config/spacing";
 
@@ -8,7 +10,7 @@
 
   @if type-of($spacing-gutters) == map {
     @each $key, $val in $spacing-gutters {
-      $new-val: $val / 2;
+      $new-val: div($val, 2);
 
       @if $negative {
         $new-val: -$new-val;
@@ -17,7 +19,7 @@
       $result: map-merge($result, (#{$key}: #{$new-val}));
     }
   } @else {
-    $new-val: $spacing-gutters / 2;
+    $new-val: div($spacing-gutters, 2);
 
     @if $negative {
       $new-val: -$new-val;

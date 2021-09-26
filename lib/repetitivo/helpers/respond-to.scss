@@ -1,3 +1,5 @@
+@import "../internal/div";
+
 @import "../config/breakpoints";
 
 @import "../functions/strip-units";
@@ -32,11 +34,11 @@
     }
 
     @if $min {
-      $min: (strip-units($min) / 16) * 1em;
+      $min: (div(strip-units($min), 16)) * 1em;
     }
 
     @if $max {
-      $max: (strip-units($max) / 16) * 1em;
+      $max: (div(strip-units($max), 16)) * 1em;
     }
 
     $breakpointString: false;

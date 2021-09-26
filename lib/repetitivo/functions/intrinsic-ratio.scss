@@ -1,3 +1,5 @@
+@import "../internal/div";
+
 /// Get ratio from width and height
 /// @param {number} $width
 /// @param {number} $height
@@ -5,5 +7,5 @@
 /// @example
 ///   intrinsic-ratio(16, 9) // 56.25%
 @function intrinsic-ratio($width, $height) {
-  @return percentage($height / $width);
+  @return percentage(div($height, $width));
 }

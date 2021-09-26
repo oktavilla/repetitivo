@@ -1,3 +1,5 @@
+@import "../internal/div";
+
 /// Returns base to the exponent power
 /// @param {number} $base - The base number
 /// @param {number} $exponents - The exponent to which to raise base
@@ -9,7 +11,7 @@
   $raised: 1;
 
   @for $i from 1 through abs($exponents) {
-    $raised: if($exponents >= 0, $raised * $base, $raised / $base);
+    $raised: if($exponents >= 0, $raised * $base, div($raised, $base));
   }
 
   @return $raised;

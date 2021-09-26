@@ -1,3 +1,5 @@
+@import "../internal/div";
+
 /// Mix two colors with multiply blend mode
 /// @param {string} $base-color
 /// @param {string} $mix-color
@@ -7,9 +9,9 @@
 ///   blend-multiply(#ff0, #0f0) // #ffcc00
 ///   blend-multiply(#ff0, #0f0, 50%) // #ffe600
 @function blend-multiply($base-color, $mix-color, $weight: 100%) {
-  $red: floor(red($base-color) * red($mix-color) / 255);
-  $green: floor(green($base-color) * green($mix-color) / 255);
-  $blue: floor(blue($base-color) * blue($mix-color) / 255);
+  $red: floor(red($base-color) * div(red($mix-color), 255));
+  $green: floor(green($base-color) * div(green($mix-color), 255));
+  $blue: floor(blue($base-color) * div(blue($mix-color), 255));
 
   @return mix(rgb($red, $green, $blue), $base-color, $weight);
 }
