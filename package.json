@@ -4,7 +4,7 @@
   "description": "A system.",
   "main": "index.scss",
   "scripts": {
-    "generate:docs": "sassdoc .",
+    "docs": "sassdoc .",
     "test": "test/build_individually.sh"
   },
   "repository": {
@@ -19,12 +19,10 @@
   },
   "homepage": "https://github.com/Oktavilla/repetitivo#readme",
   "devDependencies": {
-    "json": "^11.0.0",
-    "nodemon": "^2.0.13",
     "postcss-scss": "^4.0.2",
     "prettier": "^2.5.0",
     "sass": "^1.42.1",
-    "sassdoc": "^2.1.20",
+    "sassdoc": "^2.7.3",
     "stylelint": "^14.1.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-rational-order": "^0.1.2",
