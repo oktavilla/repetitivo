@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use 'sass:meta';
+
+/// Merge any number of maps
+/// @param {map} $maps... - Maps to merge
+/// @return {map}
+/// @example
+///   map-merge-all((a: a), (b: b), (c: c)) // (a: a, b: b, c: c)
+@function map-merge-all($maps...) {
+  $output: map.remove(
+    (
+      x: x,
+    ),
+    x
+  );
+
+  @each $map in $maps {
+    @if meta.type-of($map) == map {
+      $output: map.merge($output, $map);
+    }
+  }
+
+  @return $output;
+}
