@@ -2,6 +2,7 @@
 @use 'sass:math';
 
 @use '../config';
+
 @use '../functions/strip-units' as *;
 
 @mixin respond-to(
