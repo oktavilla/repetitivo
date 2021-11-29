@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use 'sass:meta';
+
+/// Returns a value several levels down from a map
+/// @param {map} $map - Root map to fetch value from
+/// @param {string} $keys... - Keys to look for
+/// @return {mixed}
+/// @example
+///   map-get-deep((a: (b: foobar), a, b) // foobar
+@function map-get-deep($map, $keys...) {
+  @each $key in $keys {
+    @if meta.type-of($map) == 'map' {
+      $map: map.get($map, $key);
+    } @else {
+      $map: null;
+    }
+  }
+
+  @return $map;
+}
