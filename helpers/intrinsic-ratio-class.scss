@@ -1,4 +1,5 @@
 @use '../config';
+
 @use '../functions/intrinsic-ratio' as *;
 
 @mixin intrinsic-ratio-class($width, $height, $before: false) {

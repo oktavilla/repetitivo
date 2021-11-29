@@ -3,6 +3,7 @@
 @use 'sass:string';
 
 @use '../config';
+
 @use '../functions/list-last' as *;
 @use '../functions/str-split' as *;
 

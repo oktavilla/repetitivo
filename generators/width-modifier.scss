@@ -2,6 +2,7 @@
 @use 'sass:meta';
 
 @use '../config';
+
 @use '../functions/grid-column-width' as *;
 
 @mixin generate-width-modifier(

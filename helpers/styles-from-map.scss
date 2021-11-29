@@ -1,9 +1,11 @@
 @use 'sass:map';
 
 @use '../config';
+
 @use '../functions/group-styles-by-breakpoint' as *;
 @use '../functions/map-exclude-keys' as *;
 @use '../functions/map-include-keys' as *;
+
 @use './styles-from-breakpoint-map' as *;
 
 @mixin styles-from-map(

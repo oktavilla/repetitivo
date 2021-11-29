@@ -1,6 +1,7 @@
 @use 'sass:map';
 
 @use '../config';
+
 @use './apply-styles' as *;
 @use './respond-to' as *;
 
