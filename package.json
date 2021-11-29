@@ -2,12 +2,9 @@
   "name": "repetitivo",
   "version": "0.0.1",
   "description": "A system.",
-  "main": "lib/repetitivo.scss",
+  "main": "index.scss",
   "scripts": {
-    "build": "node-sass lib/repetitivo.scss build/repetitivo.css",
-    "generate:docs": "sassdoc lib/repetitivo",
-    "generate:docs:watch": "nodemon -w lib -e scss -x 'npm run generate:docs'",
-    "start": "npm run build -- --watch",
+    "generate:docs": "sassdoc .",
     "test": "test/build_individually.sh"
   },
   "repository": {
