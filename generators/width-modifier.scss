@@ -8,7 +8,7 @@
   $columns-and-context,
   $breakpoint: null,
   $property: width,
-  $breakpoint-separator: config.$element-separator,
+  $element-separator: config.$element-separator,
   $modifier-separator: config.$modifier-separator,
   $breakpoints: config.$breakpoints
 ) {
@@ -36,7 +36,7 @@
 
   @if $breakpoint {
     @include respond-to($breakpoint) {
-      &#{$breakpoint-separator}#{$breakpoint}#{$columns-modifier} {
+      &#{$element-separator}#{$breakpoint}#{$columns-modifier} {
         #{$property}: $column-width;
       }
     }
