@@ -1,4 +1,6 @@
-@import "./modular-scale";
+@use 'sass:map';
+
+@use './modular-scale' as *;
 
 /// Transforms a map of breakpoints and scale ratios with the given base size
 /// and multiple to a corresponding map with modular scale applied
@@ -12,7 +14,10 @@
   $result: ();
 
   @each $key, $val in $scale-map {
-    $result: map-merge($result, (#{$key}: #{modular-scale($multiple, $base-size, $val)}));
+    $result: map.merge(
+      $result,
+      (#{$key}: #{modular-scale($multiple, $base-size, $val)})
+    );
   }
 
   @return $result;

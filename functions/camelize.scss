@@ -1,4 +1,6 @@
-@import "./capitalize";
+@use 'sass:string';
+
+@use './capitalize' as *;
 
 /// Convert string to UpperCamelCase
 /// @param {string} $string - String to camelize
@@ -7,19 +9,20 @@
 ///   camelize("hello-world") // HelloWorld
 @function camelize($string) {
   $progress: $string;
-  $result: "";
-  $exclude: " ", "-", "_";
+  $result: '';
+  $exclude: ' ', '-', '_';
 
-  @while str-length($progress) > 0 {
-    $char: str-slice($progress, 1, 1);
+  @while string.length($progress) > 0 {
+    $char: string.slice($progress, 1, 1);
 
-    @if index($exclude, $char) {
-      $progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+    @if string.index($exclude, $char) {
+      $progress: capitalize(string.slice($progress, 2, 2)) +
+        string.slice($progress, 3);
     } @else {
       $result: $result + $char;
-      $progress: str-slice($progress, 2);
+      $progress: string.slice($progress, 2);
     }
- }
+  }
 
   @return capitalize($result);
 }

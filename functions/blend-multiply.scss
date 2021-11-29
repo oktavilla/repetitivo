@@ -1,4 +1,5 @@
-@import "../internal/div";
+@use 'sass:color';
+@use 'sass:math';
 
 /// Mix two colors with multiply blend mode
 /// @param {string} $base-color
@@ -9,9 +10,15 @@
 ///   blend-multiply(#ff0, #0f0) // #ffcc00
 ///   blend-multiply(#ff0, #0f0, 50%) // #ffe600
 @function blend-multiply($base-color, $mix-color, $weight: 100%) {
-  $red: floor(red($base-color) * div(red($mix-color), 255));
-  $green: floor(green($base-color) * div(green($mix-color), 255));
-  $blue: floor(blue($base-color) * div(blue($mix-color), 255));
+  $red: math.floor(
+    color.red($base-color) * math.div(color.red($mix-color), 255)
+  );
+  $green: math.floor(
+    color.green($base-color) * math.div(color.green($mix-color), 255)
+  );
+  $blue: math.floor(
+    color.blue($base-color) * math.div(color.blue($mix-color), 255)
+  );
 
-  @return mix(rgb($red, $green, $blue), $base-color, $weight);
+  @return color.mix(rgb($red, $green, $blue), $base-color, $weight);
 }

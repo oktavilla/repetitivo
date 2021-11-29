@@ -1,17 +1,17 @@
-$repetitivo-breakpoints: (
+$breakpoints: (
   xs: (
-    min: 400
+    min: 400,
   ),
   s: (
-    min: 600
+    min: 600,
   ),
   m: (
-    min: 800
+    min: 800,
   ),
   l: (
-    min: 1000
+    min: 1000,
   ),
   xl: (
-    min: 1200
-  )
+    min: 1200,
+  ),
 ) !default;

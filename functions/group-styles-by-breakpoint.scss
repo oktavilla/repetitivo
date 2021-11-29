@@ -1,4 +1,6 @@
-@import "./map-merge-deep";
+@use 'sass:meta';
+
+@use './map-merge-deep' as *;
 
 /// Combines several maps for more effective use with
 /// the styles-from-breakpoint-map mixin
@@ -28,15 +30,27 @@
 ///   //   )
 ///   // )
 @function group-styles-by-breakpoint($map) {
-  $result: (default: ());
+  $result: (
+    default: (),
+  );
 
   @each $property, $var in $map {
-    @if type-of($var) == "map" {
+    @if meta.type-of($var) == 'map' {
       @each $breakpoint, $value in $var {
-        $result: map-merge-deep($result, (#{$breakpoint}: (#{$property}: $value)));
+        $result: map-merge-deep(
+          $result,
+          (#{$breakpoint}: (#{$property}: $value))
+        );
       }
-    } @else if type-of($var) != "null" {
-      $result: map-merge-deep($result, (default: (#{$property}: $var)));
+    } @else if meta.type-of($var) != 'null' {
+      $result: map-merge-deep(
+        $result,
+        (
+          default: (
+            #{$property}: $var,
+          ),
+        )
+      );
     }
   }
 

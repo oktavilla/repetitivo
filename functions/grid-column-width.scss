@@ -1,4 +1,4 @@
-@import "../internal/div";
+@use 'sass:math';
 
 /// Get grid column width
 /// @param {number} $columns - Number of columns you want to render
@@ -7,5 +7,5 @@
 /// @example
 ///   grid-column-width(6, 12) // 50%
 @function grid-column-width($columns, $context) {
-  @return div($columns, $context) * 100%;
+  @return math.div($columns, $context) * 100%;
 }
