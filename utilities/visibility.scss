@@ -1,9 +1,0 @@
-@import "../patterns/visibility";
-
-.u-visibilityHidden {
-  @include visibility-hidden;
-}
-
-.u-visibilityHiddenFocusable {
-  @include visibility-hidden--focusable;
-}
