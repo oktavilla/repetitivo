@@ -4,8 +4,6 @@ COLOR_RESET="\033[0m"
 COLOR_RED="\033[31m"
 COLOR_GREEN="\033[32m"
 
-DIR="${1:-lib}"
-
 error () {
   local file="${1}"
   local result="${2}"
@@ -25,7 +23,7 @@ success () {
 
 echo "Build each file individually"
 
-for file in $(find "${DIR}" -name "*.scss" -not -name "_index.scss"); do
+for file in $(find . -name "*.scss" -not -path "./node_modules/*"); do
   result=$(sass ${file} 2>&1 > /dev/null)
 
   if [ "$result" ]; then
