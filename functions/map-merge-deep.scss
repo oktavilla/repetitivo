@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use 'sass:meta';
+
 /// Join two maps recursively
 /// @param {map} - Map 1
 /// @param {map} - Map 2
@@ -10,11 +13,16 @@
   $out: $map1;
 
   @each $key, $value in $map2 {
-    @if map-get($out, $key) != null and type-of($value) == map {
-      $value: map-merge-deep(map-get($out, $key), $value);
+    @if map-get($out, $key) != null and meta.type-of($value) == map {
+      $value: map-merge-deep(map.get($out, $key), $value);
     }
 
-    $out: map-merge($out, ($key: $value));
+    $out: map.merge(
+      $out,
+      (
+        $key: $value,
+      )
+    );
   }
 
   @return $out;

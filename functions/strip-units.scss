@@ -1,4 +1,4 @@
-@import "../internal/div";
+@use 'sass:math';
 
 /// Strip units from a number
 /// @param {number} $number - The number to strip
@@ -6,5 +6,5 @@
 /// @example
 ///   strip-units(4px) // 4
 @function strip-units($number) {
-  @return div($number, ($number * 0 + 1));
+  @return math.div($number, ($number * 0 + 1));
 }

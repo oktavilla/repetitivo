@@ -1,11 +1,18 @@
-@import "../functions/group-styles-by-breakpoint";
-@import "../functions/map-exclude-keys";
-@import "../functions/map-include-keys";
+@use 'sass:map';
 
-@import "./styles-from-breakpoint-map";
+@use '../config';
+@use '../functions/group-styles-by-breakpoint' as *;
+@use '../functions/map-exclude-keys' as *;
+@use '../functions/map-include-keys' as *;
+@use './styles-from-breakpoint-map' as *;
 
-@mixin styles-from-map($map, $breakpoints: $repetitivo-breakpoints, $include-breakpoints: null, $exclude-breakpoints: null) {
-  @if not map-has-key($map, "default") {
+@mixin styles-from-map(
+  $map,
+  $breakpoints: config.$breakpoints,
+  $include-breakpoints: null,
+  $exclude-breakpoints: null
+) {
+  @if not map.has-key($map, 'default') {
     $map: group-styles-by-breakpoint($map);
   }
 

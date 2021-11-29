@@ -1,28 +1,35 @@
-@import "../config/naming";
-@import "../config/breakpoints";
-@import "../config/grid";
+@use 'sass:list';
+@use 'sass:meta';
 
-@import "../functions/grid-column-width";
+@use '../config';
+@use '../functions/grid-column-width' as *;
 
-@mixin repetitivo-generate-width-modifier($columns-and-context, $breakpoint: null, $property: width, $breakpoint-separator: $repetitivo-element-separator, $modifier-separator: $repetitivo-modifier-separator, $breakpoints: $repetitivo-breakpoints) {
+@mixin generate-width-modifier(
+  $columns-and-context,
+  $breakpoint: null,
+  $property: width,
+  $breakpoint-separator: config.$element-separator,
+  $modifier-separator: config.$modifier-separator,
+  $breakpoints: config.$breakpoints
+) {
   $columns: null;
   $context: null;
   $columns-modifier: null;
 
-  @if type-of($columns-and-context) == number {
+  @if meta.type-of($columns-and-context) == number {
     $columns: $columns-and-context;
     $context: $repetitivo-grid-columns;
-    $columns-modifier: "#{$modifier-separator}#{$columns}";
+    $columns-modifier: '#{$modifier-separator}#{$columns}';
   } @else {
-    $columns: nth($columns-and-context, 1);
+    $columns: list.nth($columns-and-context, 1);
 
-    @if type-of(nth($columns-and-context, 2)) == number {
-      $context: nth($columns-and-context, 2);
+    @if meta.type-of(list.nth($columns-and-context, 2)) == number {
+      $context: list.nth($columns-and-context, 2);
     } @else {
-      $context: nth($columns-and-context, 3);
+      $context: list.nth($columns-and-context, 3);
     }
 
-    $columns-modifier: "#{$modifier-separator}#{$columns}-of-#{$context}";
+    $columns-modifier: '#{$modifier-separator}#{$columns}-of-#{$context}';
   }
 
   $column-width: grid-column-width($columns, $context);

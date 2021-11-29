@@ -1,3 +1,6 @@
+@use 'sass:list';
+@use 'sass:map';
+
 /// Returns a map that excludes keys from key list
 /// @param {map} $map - Map to filter
 /// @param {list} $keys - List of keys to exclude
@@ -6,8 +9,8 @@
 ///   map-exclude-keys((a: 1, b: 2, c: 3), a b) // (c: 3)
 @function map-exclude-keys($map, $keys) {
   @each $key, $val in $map {
-    @if index($keys, $key) {
-      $map: map-remove($map, $key);
+    @if list.index($keys, $key) {
+      $map: map.remove($map, $key);
     }
   }
 

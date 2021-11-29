@@ -1,3 +1,6 @@
+@use 'sass:list';
+@use 'sass:map';
+
 /// Returns a map that only includes keys from key list
 /// @param {map} $map - Map to filter
 /// @param {list} $keys - List of keys to keep
@@ -6,8 +9,8 @@
 ///   map-include-keys((a: 1, b: 2, c: 3), a b) // (a: 1, b: 2)
 @function map-include-keys($map, $keys) {
   @each $key, $val in $map {
-    @if not index($keys, $key) {
-      $map: map-remove($map, $key);
+    @if not list.index($keys, $key) {
+      $map: map.remove($map, $key);
     }
   }
 

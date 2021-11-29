@@ -1,21 +1,28 @@
-@import "../internal/div";
+@use 'sass:map';
+@use 'sass:math';
 
-@import "../config/breakpoints";
+@use '../config';
+@use '../functions/strip-units' as *;
 
-@import "../functions/strip-units";
-
-@mixin respond-to($point, $max: null, $type: auto, $value: width, $media: screen, $breakpoints: $repetitivo-breakpoints) {
-  @if ($point == "default") {
+@mixin respond-to(
+  $point,
+  $max: null,
+  $type: auto,
+  $value: width,
+  $media: screen,
+  $breakpoints: config.$breakpoints
+) {
+  @if ($point == 'default') {
     @content;
   } @else {
     $min: null;
 
-    $is-in-map: map-has-key($breakpoints, $point);
-    $breakpoint: map-get($breakpoints, $point);
+    $is-in-map: map.has-key($breakpoints, $point);
+    $breakpoint: map.get($breakpoints, $point);
 
     @if $is-in-map == true {
-      $min: map-get($breakpoint, "min");
-      $max: map-get($breakpoint, "max");
+      $min: map.get($breakpoint, 'min');
+      $max: map.get($breakpoint, 'max');
     }
 
     @if $is-in-map != true {
@@ -34,24 +41,24 @@
     }
 
     @if $min {
-      $min: (div(strip-units($min), 16)) * 1em;
+      $min: (math.div(strip-units($min), 16)) * 1em;
     }
 
     @if $max {
-      $max: (div(strip-units($max), 16)) * 1em;
+      $max: (math.div(strip-units($max), 16)) * 1em;
     }
 
-    $breakpointString: false;
+    $breakpoint-string: false;
 
     @if $type == max and $max {
-      $breakpointString: "#{$media} and (max-#{$value}: #{$max})";
+      $breakpoint-string: '#{$media} and (max-#{$value}: #{$max})';
     } @else if $type == min and $min {
-      $breakpointString: "#{$media} and (min-#{$value}: #{$min})";
+      $breakpoint-string: '#{$media} and (min-#{$value}: #{$min})';
     } @else if ($type == between or $type == both) and $min and $max {
-      $breakpointString: "#{$media} and (min-#{$value}: #{$min}) and (max-#{$value}: #{$max})";
+      $breakpoint-string: '#{$media} and (min-#{$value}: #{$min}) and (max-#{$value}: #{$max})';
     }
 
-    @media #{$breakpointString} {
+    @media #{$breakpoint-string} {
       @content;
     }
   }

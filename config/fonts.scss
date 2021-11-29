@@ -1,1 +1,3 @@
-$repetitivo-fonts: zip(()) !default;
+@use 'sass:list';
+
+$fonts: list.zip(()) !default;

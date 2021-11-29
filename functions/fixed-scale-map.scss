@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /// Transforms a map of breakpoints and scale ratios with the given base size
 /// to a corresponding map with the specified multiple applied
 /// @param {map} $scale-map
@@ -10,7 +12,7 @@
   $result: ();
 
   @each $key, $val in $scale-map {
-    $result: map-merge($result, (#{$key}: $multiple * $base-size * $val));
+    $result: map.merge($result, (#{$key}: $multiple * $base-size * $val));
   }
 
   @return $result;

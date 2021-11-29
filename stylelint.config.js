@@ -14,5 +14,6 @@ module.exports = {
         'empty-line-between-groups': true,
       },
     ],
+    'scss/operator-no-newline-after': null,
   },
 };

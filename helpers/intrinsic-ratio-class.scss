@@ -1,12 +1,11 @@
-@import "../config/naming";
-
-@import "../functions/intrinsic-ratio";
+@use '../config';
+@use '../functions/intrinsic-ratio' as *;
 
 @mixin intrinsic-ratio-class($width, $height, $before: false) {
-  $selector: "#{$repetitivo-modifier-separator}#{$width}x#{$height}";
+  $selector: '#{config.$modifier-separator}#{$width}x#{$height}';
 
   @if $before {
-    $selector: "#{$selector}::before";
+    $selector: '#{$selector}::before';
   }
 
   &#{$selector} {

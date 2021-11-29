@@ -1,65 +1,70 @@
-@import "../functions/last";
-@import "../functions/str-split";
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:string';
 
-@mixin repetitivo-generate-font-faces($fonts: $repetitivo-fonts) {
-  $fonts: zip($fonts);
+@use '../config';
+@use '../functions/list-last' as *;
+@use '../functions/str-split' as *;
+
+@mixin generate-font-faces($fonts: config.$fonts) {
+  $fonts: list.zip($fonts);
 
   @each $font in $fonts {
-    $font: nth($font, 1);
+    $font: list.nth($font, 1);
 
     @font-face {
-      $sources: "";
+      $sources: '';
       $eot-source: null;
-      $files: map-get($font, files);
-      font-family: map-get($font, family);
+      $files: map.get($font, files);
+      font-family: map.get($font, family);
 
-      @for $i from 1 through length($files) {
-        $file: nth($files, $i);
-        $format: "";
+      @for $i from 1 through list.length($files) {
+        $file: list.nth($files, $i);
+        $format: '';
 
         // Use explicit formats if they are defined in the config
         // Use file extension otherwise
-        $formats: map-get($font, formats);
+        $formats: map.get($font, formats);
 
         @if $formats {
-          $format: nth($formats, $i);
+          $format: list.nth($formats, $i);
         } @else {
-          $format: last(str-split($file, "."));
+          $format: list-last(str-split($file, '.'));
         }
 
-        @if $format == "eot" {
-          $file: "#{$file}?#iefix";
-          $format: "embedded-opentype";
-        } @else if $format == "ttf" {
-          $format: "truetype";
-        } @else if $format == "svg" {
-          $file: "#{$file}#svg";
+        @if $format == 'eot' {
+          $file: '#{$file}?#iefix';
+          $format: 'embedded-opentype';
+        } @else if $format == 'ttf' {
+          $format: 'truetype';
+        } @else if $format == 'svg' {
+          $file: '#{$file}#svg';
         }
 
         // Add extra source definition for eot
-        @if ($format == "embedded-opentype") {
-          $eot-source: url("#{$file}");
+        @if ($format == 'embedded-opentype') {
+          $eot-source: url('#{$file}');
         }
 
-        $sources: "#{$sources}, url(\"#{$file}\") format(\"#{$format}\")";
+        $sources: '#{$sources}, url("#{$file}") format("#{$format}")';
       }
 
       @if $eot-source {
         src: $eot-source;
       }
 
-      src: #{str-slice($sources, 3)}; // Remove leading comma and space
+      src: #{string.slice($sources, 3)}; // Remove leading comma and space
 
-      @if map-has-key($font, weight) {
-        font-weight: map-get($font, weight);
+      @if map.has-key($font, weight) {
+        font-weight: map.get($font, weight);
       }
 
-      @if map-has-key($font, style) {
-        font-style: map-get($font, style);
+      @if map.has-key($font, style) {
+        font-style: map.get($font, style);
       }
 
-      @if map-has-key($font, display) {
-        font-display: map-get($font, display);
+      @if map.has-key($font, display) {
+        font-display: map.get($font, display);
       }
     }
   }

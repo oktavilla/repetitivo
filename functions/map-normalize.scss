@@ -1,3 +1,5 @@
+@use 'sass:meta';
+
 /// Normalize a value so that it always looks like a map of breakpoints
 /// @param {mixed} $value
 ///
@@ -7,10 +9,12 @@
 @function map-normalize($value) {
   $result: ();
 
-  @if type-of($value) == map {
+  @if meta.type-of($value) == map {
     $result: $value;
   } @else {
-    $result: (default: $value);
+    $result: (
+      default: $value,
+    );
   }
 
   @return $result;

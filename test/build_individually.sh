@@ -7,10 +7,9 @@ COLOR_GREEN="\033[32m"
 error () {
   local file="${1}"
   local result="${2}"
-  local message=$(echo "${result}" | json formatted)
 
   echo -e "${COLOR_RED}✗ ${file}${COLOR_RESET}"
-  echo -e "${message}"
+  echo -e "${result}"
   echo
   exit 1
 }
@@ -21,9 +20,9 @@ success () {
   echo -e "${COLOR_GREEN}✔ ${file}${COLOR_RESET}"
 }
 
-echo "Build each file individually"
+processFile () {
+  local file="${1}"
 
-for file in $(find . -name "*.scss" -not -path "./node_modules/*"); do
   result=$(sass ${file} 2>&1 > /dev/null)
 
   if [ "$result" ]; then
@@ -31,4 +30,14 @@ for file in $(find . -name "*.scss" -not -path "./node_modules/*"); do
   else
     success "${file}"
   fi
-done
+}
+
+echo "Build each file individually"
+
+if [ -z "${1}" ]; then
+  for file in $(find . -name "*.scss" -not -path "./node_modules/*"); do
+    processFile "${file}"
+  done
+else
+  processFile "${1}"
+fi

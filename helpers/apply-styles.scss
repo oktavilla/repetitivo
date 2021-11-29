@@ -1,10 +1,13 @@
-@import "../config/breakpoints";
-
-@import "./respond-to";
+@use '../config';
+@use './respond-to' as *;
 
 // Applies CSS properties and values based on the keys/values of a Sass map
-@mixin apply-styles($map, $breakpoint: null, $breakpoints: $repetitivo-breakpoints) {
-  @if $breakpoint == null or $breakpoint == "default" {
+@mixin apply-styles(
+  $map,
+  $breakpoint: null,
+  $breakpoints: config.$breakpoints
+) {
+  @if not $breakpoint or $breakpoint == 'default' {
     @each $prop, $val in $map {
       #{$prop}: #{$val};
     }
