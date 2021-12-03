@@ -4,6 +4,7 @@
 @use '../config';
 
 @use '../functions/grid-column-width' as *;
+@use '../helpers/respond-to' as *;
 
 @mixin generate-width-modifier(
   $columns-and-context,
