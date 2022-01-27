@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+
+/// Returns true if the last key exists
+/// @param {map} $map - Root map to fetch value from
+/// @param {string} $keys... - Keys to look for
+/// @return {mixed}
+/// @example
+///   map-has-key-deep((a: (b: foobar), a, b) // true
+///   map-has-key-deep((a: (b: foobar), a, c) // false
+@function map-has-key-deep($map, $keys...) {
+  $index: 0;
+  $keys-length: list.length($keys);
+
+  @each $key in $keys {
+    @if meta.type-of($map) == map {
+      @if $index == $keys-length - 1 {
+        @return map.has-key($map, $key);
+      }
+
+      $map: map.get($map, $key);
+    } @else {
+      $map: null;
+    }
+
+    $index: $index + 1;
+  }
+
+  @return false;
+}
