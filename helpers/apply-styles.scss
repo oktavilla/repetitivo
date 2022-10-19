@@ -8,13 +8,9 @@
   $breakpoint: null,
   $breakpoints: config.$breakpoints
 ) {
-  @if not $breakpoint or $breakpoint == 'default' {
+  @include respond-to($breakpoint) {
     @each $prop, $val in $map {
-      #{$prop}: #{$val};
-    }
-  } @else {
-    @include respond-to($breakpoint) {
-      @each $prop, $val in $map {
+      @if $val {
         #{$prop}: #{$val};
       }
     }
