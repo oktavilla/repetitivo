@@ -28,7 +28,11 @@
 ///   //   font-size: 26px;
 ///   //   line-height: 1.3;
 ///   // }
-@mixin styles-from-breakpoint-map($map, $breakpoints: config.$breakpoints) {
+@mixin styles-from-breakpoint-map(
+  $map,
+  $breakpoints: config.$breakpoints,
+  $important: false
+) {
   $breakpoints: map.merge(
     (
       default: (),
@@ -39,6 +43,6 @@
   @each $breakpoint in map.keys($breakpoints) {
     $styles: map.get($map, $breakpoint);
 
-    @include apply-styles($styles, $breakpoint, $breakpoints);
+    @include apply-styles($styles, $breakpoint, $breakpoints, $important);
   }
 }

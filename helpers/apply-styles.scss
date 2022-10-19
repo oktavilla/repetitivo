@@ -6,12 +6,15 @@
 @mixin apply-styles(
   $map,
   $breakpoint: null,
-  $breakpoints: config.$breakpoints
+  $breakpoints: config.$breakpoints,
+  $important: false
 ) {
+  $important: if($important, ' !important', null);
+
   @include respond-to($breakpoint) {
     @each $prop, $val in $map {
       @if $val {
-        #{$prop}: #{$val};
+        #{$prop}: #{$val}#{$important};
       }
     }
   }

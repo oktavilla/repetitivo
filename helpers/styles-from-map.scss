@@ -12,7 +12,8 @@
   $map,
   $breakpoints: config.$breakpoints,
   $include-breakpoints: null,
-  $exclude-breakpoints: null
+  $exclude-breakpoints: null,
+  $important: false
 ) {
   @if not map.has-key($map, 'default') {
     $map: group-styles-by-breakpoint($map);
@@ -26,5 +27,5 @@
     $map: map-exclude-keys($map, $exclude-breakpoints);
   }
 
-  @include styles-from-breakpoint-map($map, $breakpoints);
+  @include styles-from-breakpoint-map($map, $breakpoints, $important);
 }
