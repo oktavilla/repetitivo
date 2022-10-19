@@ -39,12 +39,6 @@
   @each $breakpoint in map.keys($breakpoints) {
     $styles: map.get($map, $breakpoint);
 
-    @if $breakpoint == 'default' {
-      @include apply-styles($styles);
-    } @else {
-      @include respond-to($breakpoint, $breakpoints: $breakpoints) {
-        @include apply-styles($styles);
-      }
-    }
+    @include apply-styles($styles, $breakpoint, $breakpoints);
   }
 }
