@@ -13,7 +13,7 @@
   $media: screen,
   $breakpoints: config.$breakpoints
 ) {
-  @if (not $point or $point == default) {
+  @if ($point == 'default') {
     @content;
   } @else {
     $min: null;
