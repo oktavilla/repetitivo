@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use 'sass:string';
 
 @use './capitalize' as *;
@@ -15,7 +16,7 @@
   @while string.length($progress) > 0 {
     $char: string.slice($progress, 1, 1);
 
-    @if string.index($exclude, $char) {
+    @if list.index($exclude, $char) {
       $progress: capitalize(string.slice($progress, 2, 2)) +
         string.slice($progress, 3);
     } @else {
