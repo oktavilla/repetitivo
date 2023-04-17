@@ -4,9 +4,6 @@
 
 @use '../config';
 
-@use '../functions/list-last' as *;
-@use '../functions/str-split' as *;
-
 @mixin generate-font-faces($fonts: config.$fonts) {
   $fonts: list.zip($fonts);
 
@@ -30,7 +27,7 @@
         @if $formats {
           $format: list.nth($formats, $i);
         } @else {
-          $format: list-last(str-split($file, '.'));
+          $format: list.nth(string.split($file, '.'), -1);
         }
 
         @if $format == 'eot' {
